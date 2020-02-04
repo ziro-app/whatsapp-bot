@@ -3,7 +3,8 @@ const main = require('../templates/main')
 
 // Descrever objetivo do endpoint
 
-const questions = (event, context, callback) => {
+const questions = async (event, context, callback) => {
+    console.log(event)
     const responseObject = {
         "actions": [
             {
