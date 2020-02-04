@@ -19,7 +19,7 @@ const questions = async (event, context, callback) => {
 		        {
 		            "question": "What type of clothes would you like?",
                             "name": "clothes_type",
-                            "type": "Clothing"
+                            "type": "Twilio.NUMBER"
 		        },
                         {
 		            "question": "How many would you like to order?",
