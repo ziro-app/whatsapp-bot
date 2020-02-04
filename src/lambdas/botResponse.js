@@ -1,0 +1,28 @@
+const main = require('../templates/main')
+const request = require('../templates/request')
+
+// Descrever objetivo do endpoint
+
+const lambda = (event, context, callback) => {
+    
+        let responseObject = {};
+        let memory = JSON.parse(event.Memory);
+    
+        let first_name = memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer;
+        let clothes_type = memory.twilio.collected_data.collect_clothes_order.answers.clothes_type.answer;
+        let num_clothes = memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer;
+    
+        console.log("First name: "+first_name);
+        console.log("Clothes type: "+clothes_type);
+        console.log("Num clothes: "+num_clothes);
+    
+        let message = "Ok "+first_name+". Your order for "+num_clothes+" "+clothes_type+" is now confirmed. Thank you for ordering with us";
+        responseObject = {"actions":[
+            { "say": { "speech": message } }
+        ]};        
+  
+	return request()
+}
+
+
+exports.handler = main(lambda)
