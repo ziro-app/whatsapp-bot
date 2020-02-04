@@ -1,9 +1,9 @@
 const main = require('../templates/main')
-const request = require('../templates/request')
+
 
 // Descrever objetivo do endpoint
 
-const lambda = (event, context, callback) => {
+const questions = (event, context, callback) => {
     const responseObject = {
         "actions": [
             {
@@ -38,8 +38,12 @@ const lambda = (event, context, callback) => {
             }
         ]
     };
-	return request()
+    return {
+        statusCode: 200,
+        body: JSON.stringify(responseObject, null, 4)
+    }
+    
 }
 
 
-exports.handler = main(lambda)
+exports.handler = main(questions)

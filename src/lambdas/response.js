@@ -3,7 +3,7 @@ const request = require('../templates/request')
 
 // Descrever objetivo do endpoint
 
-const lambda = (event, context, callback) => {
+const response = (event, context, callback) => {
     
         let responseObject = {};
         let memory = JSON.parse(event.Memory);
@@ -25,4 +25,4 @@ const lambda = (event, context, callback) => {
 }
 
 
-exports.handler = main(lambda)
+exports.handler = main(response)
