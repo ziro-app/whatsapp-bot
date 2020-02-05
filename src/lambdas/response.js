@@ -3,7 +3,7 @@ const request = require('../templates/request')
 
 // Descrever objetivo do endpoint
 
-const response = async (event, context, callback) => {
+const response = (event, context, callback) => {
         
         console.log(event)
 
