@@ -9,31 +9,31 @@ const questions = async (event, context, callback) => {
         "actions": [
             {
                 "collect": {
-                    "name": "collect_clothes_order",
+                    "name": "Ziro Leads",
                     "questions": [
                         {
-		            "question": "What is your first name?",
+		            "question": "Como você se chama?",
                             "name": "first_name",
                             "type": "Twilio.FIRST_NAME"
 		        },
 		        {
-		            "question": "What type of clothes would you like?",
+		            "question": "Qual a  quantidade minima de  de roupa você compra?",
                             "name": "clothes_type",
                             "type": "Twilio.NUMBER"
 		        },
                         {
-		            "question": "How many would you like to order?",
+		            "question": "Quantos você gostaria de pedir agora ??",
                             "name": "num_clothes",
                             "type": "Twilio.NUMBER"
 		        },
                         {
-		            "question": "What country is your shipping address in?",
+		            "question": "Em que país está o seu endereço de entrega?",
                             "name": "shipping_country",
                             "type": "Twilio.COUNTRY"
 	                }
 	            ],
 	            "on_complete": {
-	                "redirect": "https://replace-with-your-function.twil.io/collect"
+	                "redirect": "http://39852bf8.ngrok.io/.netlify/functions/response"
                     }
                 }
             }

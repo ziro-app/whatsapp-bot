@@ -3,8 +3,10 @@ const request = require('../templates/request')
 
 // Descrever objetivo do endpoint
 
-const response = (event, context, callback) => {
-    
+const response = async (event, context, callback) => {
+        
+        console.log(event)
+
         let responseObject = {};
         let memory = JSON.parse(event.Memory);
     
@@ -19,10 +21,13 @@ const response = (event, context, callback) => {
         let message = "Ok "+first_name+". Your order for "+num_clothes+" "+clothes_type+" is now confirmed. Thank you for ordering with us";
         responseObject = {"actions":[
             { "say": { "speech": message } }
-        ]};        
-  
-	return request()
-}
+        ]};   
+             
+  	return {
+        statusCode: 200,
+        body: JSON.stringify(responseObject, null, 4)
+    }
 
+}
 
 exports.handler = main(response)
