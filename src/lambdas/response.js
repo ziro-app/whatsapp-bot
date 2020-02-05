@@ -1,17 +1,17 @@
 const main = require('../templates/main')
 const request = require('../templates/request')
+const querystring = require('querystring')
+
 
 // Descrever objetivo do endpoint
 
 const response = async (event, context, callback) => {
         
-        console.log("evento", event)
+        const memory = querystring.parse(event.body).Memory
         
 
         let responseObject = {};
         
-        const memory = JSON.parse(event.body).Memory
-
         console.log(memory)
 
         let first_name = memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer;

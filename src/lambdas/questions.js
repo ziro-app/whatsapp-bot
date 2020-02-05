@@ -33,7 +33,7 @@ const questions = async (event, context, callback) => {
 	                }
 	            ],
 	            "on_complete": {
-	                "redirect": "http://216f0934.ngrok.io/.netlify/functions/response"
+	                "redirect": "https://whats.ziro.app/.netlify/functions/response"
                     }
                 }
             }
