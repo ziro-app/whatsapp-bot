@@ -8,12 +8,10 @@ const response = async (event, context, callback) => {
         console.log("evento", event)
         
 
-
         let responseObject = {};
         
         const memory = JSON.parse(event.body).Memory
 
-        
         console.log(memory)
 
         let first_name = memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer;
