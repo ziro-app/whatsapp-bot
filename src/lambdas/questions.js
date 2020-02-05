@@ -8,7 +8,7 @@ const questions = async (event, context, callback) => {
         "actions": [
             {
                 "collect": {
-                    "name": "Ziro Leads",
+                    "name": "collect_clothes_order",
                     "questions": [
                         {
 		            "question": "Como você se chama?",

@@ -25,7 +25,11 @@ const response = async (event, context, callback) => {
         let message = "Ok "+first_name+". Your order for "+num_clothes+" "+clothes_type+" is now confirmed. Thank you for ordering with us";
         responseObject = {"actions":[
             { "say": { "speech": message } }
+
+
         ]};   
+
+        console.log(responseObject)
           
   	return {
         statusCode: 200,
