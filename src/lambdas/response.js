@@ -3,7 +3,7 @@ const request = require('../templates/request')
 
 // Descrever objetivo do endpoint
 
-const response = (event, context, callback) => {
+const response = async (event, context, callback) => {
         
         console.log(event)
 
@@ -22,6 +22,8 @@ const response = (event, context, callback) => {
         responseObject = {"actions":[
             { "say": { "speech": message } }
         ]};   
+
+        callback(null, responseObject);
              
   	return {
         statusCode: 200,
