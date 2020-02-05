@@ -41,8 +41,7 @@ const questions = async (event, context, callback) => {
 
         
     };
-    callback(null, responseObject);
-    
+           
     return {
         statusCode: 200,
         body: JSON.stringify(responseObject, null, 4)
