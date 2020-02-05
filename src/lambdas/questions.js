@@ -4,8 +4,7 @@ const main = require('../templates/main')
 // Descrever objetivo do endpoint
 
 const questions = async (event, context, callback) => {
-    console.log(event)
-    const responseObject = {
+        const responseObject = {
         "actions": [
             {
                 "collect": {
@@ -29,11 +28,12 @@ const questions = async (event, context, callback) => {
                         {
 		            "question": "Em que país está o seu endereço de entrega?",
                             "name": "shipping_country",
+           
                             "type": "Twilio.COUNTRY"
 	                }
 	            ],
 	            "on_complete": {
-	                "redirect": "http://62be00a4.ngrok.io/.netlify/functions/response"
+	                "redirect": "https://whats.ziro.app/.netlify/functions/response"
                     }
                 }
             }

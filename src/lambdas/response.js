@@ -5,7 +5,8 @@ const request = require('../templates/request')
 
 const response = async (event, context, callback) => {
         
-        console.log(event)
+        console.log("evento", event)
+        console.log("memory", event.memory)
 
         let responseObject = {};
         let memory = JSON.parse(event.Memory);
@@ -22,9 +23,7 @@ const response = async (event, context, callback) => {
         responseObject = {"actions":[
             { "say": { "speech": message } }
         ]};   
-
-        callback(null, responseObject);
-             
+          
   	return {
         statusCode: 200,
         body: JSON.stringify(responseObject, null, 4)
