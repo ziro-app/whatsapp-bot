@@ -33,13 +33,14 @@ const questions = async (event, context, callback) => {
 	                }
 	            ],
 	            "on_complete": {
-	                "redirect": "https://whats.ziro.app/.netlify/functions/response"
+	                "redirect": {
+						"method": "POST",
+						"uri": "https://whats.ziro.app/.netlify/functions/response"
                     }
                 }
             }
         ]
-
-        
+       
     };
            
     return {
