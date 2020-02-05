@@ -4,10 +4,12 @@ const request = require('../templates/request')
 // Descrever objetivo do endpoint
 
 const response = async (event, context, callback) => {
-        
-        console.log(event)
-
+    try {
+        console.log(event.body)
+        console.log(memory)
+    
         let responseObject = {};
+        console.log(responseObject)
         let memory = JSON.parse(event.Memory);
     
         let first_name = memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer;
@@ -22,7 +24,13 @@ const response = async (event, context, callback) => {
         responseObject = {"actions":[
             { "say": { "speech": message } }
         ]};   
-             
+            
+        } catch (error) {
+            console.log(error)
+            
+        }
+
+
   	return {
         statusCode: 200,
         body: JSON.stringify(responseObject, null, 4)
