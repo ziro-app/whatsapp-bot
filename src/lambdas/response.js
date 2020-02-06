@@ -9,7 +9,7 @@ const response = async (event, context, callback) => {
         
     let responseObject = {};
     let memory = JSON.parse(event.Memory);
-
+    
     let first_name = memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer;
     let clothes_type = memory.twilio.collected_data.collect_clothes_order.answers.clothes_type.answer;
     let num_clothes = memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer;

@@ -1,6 +1,5 @@
 require('dotenv').config()
 const middy = require('middy')
-const httpUrlEncodeBodyParser = require('@middy/http-urlencode-body-parser')
 const { jsonBodyParser } = require('middy/middlewares')
 const { preflight } = require('@ziro/middleware')
 const { allowedOrigin } = require('@ziro/middleware')
@@ -12,7 +11,6 @@ const allowed = 'https://ziro.app'
 const main = handler =>
 	middy(handler)
 	.use(preflight)
-	.use(httpUrlEncodeBodyParser({extended: false}))
 	.use(jsonBodyParser())
 	.use(errorHandler)
 	.use(cors)
