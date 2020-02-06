@@ -4,38 +4,35 @@ const main = require('../templates/main')
 // Descrever objetivo do endpoint
 
 const questions = async (event, context, callback) => {
-        const responseObject = {
+    const responseObject = {
         "actions": [
             {
                 "collect": {
                     "name": "collect_clothes_order",
                     "questions": [
                         {
-		            "question": "Como você se chama?",
+		            "question": "What is your first name?",
                             "name": "first_name",
                             "type": "Twilio.FIRST_NAME"
 		        },
 		        {
-		            "question": "Qual a  quantidade minima de  de roupa você compra?",
+		            "question": "What type of clothes would you like?",
                             "name": "clothes_type",
-                            "type": "Twilio.NUMBER"
+                            "type": "Clothing"
 		        },
                         {
-		            "question": "Quantos você gostaria de pedir agora ??",
+		            "question": "How many would you like to order?",
                             "name": "num_clothes",
                             "type": "Twilio.NUMBER"
 		        },
                         {
-		            "question": "Em que país está o seu endereço de entrega?",
+		            "question": "What country is your shipping address in?",
                             "name": "shipping_country",
-           
                             "type": "Twilio.COUNTRY"
 	                }
 	            ],
 	            "on_complete": {
-	                "redirect": {
-						"method": "POST",
-						"uri": "https://whats.ziro.app/.netlify/functions/response"
+	                "redirect": "https://whats.ziro.app/.netlify/functions/response"
                     }
                 }
             }
