@@ -32,7 +32,7 @@ const questions = async (event, context, callback) => {
 	                }
 	            ],
 	            "on_complete": {
-	                "redirect": "http://2fe51e02.ngrok.io/.netlify/functions/response"
+	                "redirect": ""
                     }
                 }
             }
