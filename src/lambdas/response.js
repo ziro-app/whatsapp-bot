@@ -8,7 +8,7 @@ const querystring = require('querystring')
 const response = async (event, context, callback) => {
         
     let responseObject = {};
-    const memory = querystring.parse(event.body).Memory;
+    let memory = JSON.parse(event.Memory);
 
     let first_name = memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer;
     let clothes_type = memory.twilio.collected_data.collect_clothes_order.answers.clothes_type.answer;
