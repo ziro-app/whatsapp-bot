@@ -20,7 +20,6 @@
     "dotenv": "^8.2.0",
     "middy": "^0.30.4",
     "netlify-lambda": "^1.6.3",
-    "twilio": "^3.39.4",
     "webpack-node-externals": "^1.7.2"
   }
 }
