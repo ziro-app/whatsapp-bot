@@ -14,11 +14,13 @@ const response = async (event, context, callback) => {
     console.log(memory)
     
     let responseObject = {};
-        
-    const nome =  memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer
-    const tipo = memory.twilio.collected_data.collect_clothes_order.answers.clothes_type.answer;
-    const roupas = memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer
-    const pais = memory.twilio.collected_data.collect_clothes_order.answers.shipping_country.answer;
+
+    const {first_name,clothes_type,num_clothes,shipping_country } = memory.twilio.collected_data.collect_clothes_order.answers
+
+    const nome = first_name.answer
+    const tipo = clothes_type.answer;
+    const roupas = num_clothes.answer
+    const pais = shipping_country.answer;
 
     console.log(nome)
     console.log(tipo)

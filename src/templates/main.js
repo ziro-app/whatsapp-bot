@@ -13,8 +13,7 @@ const allowed = 'https://ziro.app'
 const main = handler =>
 	middy(handler)
 	.use(preflight)
-	.use(httpUrlEncodeBodyParser())
-	.use(errorHandler)
+	.use(httpUrlEncodeBodyParser())	.use(errorHandler)
 	.use(cors)
 
 module.exports = main
