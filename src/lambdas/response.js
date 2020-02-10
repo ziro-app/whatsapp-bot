@@ -21,6 +21,8 @@ const response = async (event, context, callback) => {
 
     const roupas = event.body.Memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer
 
+    console.log(roupas)
+
     // console.log("First name: "+first_name);
     // console.log("Clothes type: "+clothes_type);
     // console.log("Num clothes: "+num_clothes);
