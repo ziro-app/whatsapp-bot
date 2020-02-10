@@ -10,8 +10,8 @@ const response = async (event, context, callback) => {
     const memory = querystring.parse(event.body).Memory
   
     console.log(event)
-    console.log(memory)
-    console.log(event.queryStringParameters)
+    
+    console.log(event.body.Memory)
     // let responseObject = {};
         
 
