@@ -17,7 +17,9 @@ const response = async (event, context, callback) => {
     let responseObject = {};
         
 
-    console.log(JSON.stringify(event.body.Memory),null,4)
+    //console.log(JSON.stringify(event.body.Memory),null,4)
+
+    const roupas = event.body.Memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer
 
     // console.log("First name: "+first_name);
     // console.log("Clothes type: "+clothes_type);
