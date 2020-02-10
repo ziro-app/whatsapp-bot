@@ -15,21 +15,22 @@ const response = async (event, context, callback) => {
     
     let responseObject = {};
         
-
+    const nome =  memory.twilio.collected_data.collect_clothes_order.answers.first_name.answer
+    const tipo = memory.twilio.collected_data.collect_clothes_order.answers.clothes_type.answer;
     const roupas = memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer
+    const pais = memory.twilio.collected_data.collect_clothes_order.answers.shipping_country.answer;
 
+    console.log(nome)
+    console.log(tipo)
     console.log(roupas)
+    console.log(pais)
 
-    // console.log("First name: "+first_name);
-    // console.log("Clothes type: "+clothes_type);
-    // console.log("Num clothes: "+num_clothes);
-
-    // let message = "Ok "+first_name+". Your order for "+num_clothes+" "+clothes_type+" is now confirmed. Thank you for ordering with us";
+    const message = "Ok " + nome + ". Sua compra foi de " + roupas + " " + tipo+ " esta confirmada. entregaremos no " + pais;
     
     responseObject = {
         "actions": [ 
             { "say": 
-                { "speech": "ok" } 
+                { "speech": message } 
             }
         ]
     }   
