@@ -1,9 +1,9 @@
 require('dotenv').config()
-const middy = require('middy')
+
+const middy = require('@middy/core')
 const { jsonBodyParser } = require('middy/middlewares')
 const { preflight } = require('@ziro/middleware')
 const httpUrlEncodeBodyParser = require("@middy/http-urlencode-body-parser")
-const middy = require('@middy/core')
 const { allowedOrigin } = require('@ziro/middleware')
 const { auth } = require('@ziro/middleware')
 const { errorHandler } = require('@ziro/middleware')
