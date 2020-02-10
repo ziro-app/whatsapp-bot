@@ -8,20 +8,15 @@ const twilio = require('twilio')
 
 const response = async (event, context, callback) => {
     
-    
-  
-    console.log(event)
-    
-    console.log(event.body.Memory)
+        
+    console.log(JSON.parse(event.body.Memory))
     
     let responseObject = {};
         
 
-    //console.log(JSON.stringify(event.body.Memory),null,4)
+    //const roupas = event.body.Memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer
 
-    const roupas = event.body.Memory.twilio.collected_data.collect_clothes_order.answers.num_clothes.answer
-
-    console.log(roupas)
+    //console.log(roupas)
 
     // console.log("First name: "+first_name);
     // console.log("Clothes type: "+clothes_type);
