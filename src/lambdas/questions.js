@@ -8,32 +8,32 @@ const questions = async (event, context, callback) => {
                     "name": "leads_ziro",
                     "questions": [
                         {
-        		            "question": "1) Digite seu cnpj para sabermos se podemos atendê-lo",
+        		            "question": "*1)* Digite seu cnpj para sabermos se podemos atendê-lo",
                             "name": "cnpj_cliente",
                             "type": "Twilio.NUMBER_SEQUENCE"
         		        },
         		        {
-                            "question": "2) Vamos atendê-lo. Escolha um produto da lista abaixo para comprar\n\
-                                            vestido de festa\n\
-                                            saia\n\
-                                            camisa\n\
-                                            t-shirt\n\
-                                            jeans\n\
-                                            legging\n\
-                                            shorts\n\
-                                            colete\n\
-                                            jaqueta\n\
+                            "question": "*2)* Vamos atendê-lo. Escolha um produto da lista abaixo para comprar\n\
+                                            vestido de festa           \n\
+                                            saia                       \n\
+                                            camisa                     \n\
+                                            t-shirt                    \n\
+                                            jeans                      \n\
+                                            legging                    \n\
+                                            shorts                     \n\
+                                            colete                     \n\
+                                            jaqueta                    \n\
                                             Bikini",
                             "name": "lista_produtos1",
                             "type": "Lista"
         		        },
                         {
-        		            "question": "3) Escolha mais um produto",
+        		            "question": "*3)* Escolha mais um produto",
                             "name": "lista_produtos2",
                             "type": "Lista"
         		        },
                         {
-        		            "question": "4) Escolha o terceiro e último",
+        		            "question": "*4)* Escolha o terceiro e último",
                             "name": "lista_produtos3",
                             "type": "Lista"
         	            }
