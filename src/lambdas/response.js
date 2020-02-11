@@ -10,8 +10,9 @@ const response = async (event, context, callback) => {
            
             console.log(cnpj)
             
-            const message = "Seu cnpj é "+cnpj+ " vamos prosseguir?" 
+            const message = "Seu cnpj é "+cnpj+ " para prosseguir digite ok!" 
             const responseObject = {
+                
                 "actions": [
                     {
                         "say": {
