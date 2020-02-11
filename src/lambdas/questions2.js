@@ -11,7 +11,7 @@ const questions2 = async (event, context, callback) => {
                     "questions": [
                      
                         {
-        		            "question": "5) A partir de que valor você vende um(a) ",
+        		            "question": "5) A partir de que valor você vende um(a) "+produtos1,
                             "name": "venda_produto1",
                             "type": "Twilio.NUMBER_SEQUENCE"
                         },
