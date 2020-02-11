@@ -13,7 +13,17 @@ const questions = async (event, context, callback) => {
                             "type": "Twilio.NUMBER_SEQUENCE"
         		        },
         		        {
-                            "question": "2) Vamos atendê-lo. Escolha um produto da lista abaixo para comprar\n\ vestido de festa\n\ saia\n\ camisa\n\ t-shirt\n\ jeans\n\ legging\n\ shorts\n\ colete\n\ jaqueta\n\ Bikini",
+                            "question": "2) Vamos atendê-lo. Escolha um produto da lista abaixo para comprar\
+                                            vestido de festa\
+                                            saia\
+                                            camisa\
+                                            t-shirt\
+                                            jeans\
+                                            legging\
+                                            shorts\
+                                            colete\
+                                            jaqueta\
+                                            Bikini",
                             "name": "lista_produtos1",
                             "type": "Lista"
         		        },
@@ -26,7 +36,22 @@ const questions = async (event, context, callback) => {
         		            "question": "4) Escolha o terceiro e último",
                             "name": "lista_produtos3",
                             "type": "Lista"
-        	            }
+                        },
+                        {
+        		            "question": "5) Por quanto você vende um(a) "+ produtos1 ,
+                            "name": "venda_produto1",
+                            "type": "Twilio.NUMBER_SEQUENCE"
+                        },
+                        {
+        		            "question": "6) Por quanto você vende um(a) "+ produtos2 ,
+                            "name": "venda_produto2",
+                            "type": "Twilio.NUMBER_SEQUENCE"
+                        },
+                        {
+        		            "question": "6) Por quanto você vende um(a) "+ produtos3 ,
+                            "name": "venda_produto3",
+                            "type": "Twilio.NUMBER_SEQUENCE"
+        	            },
 	                ],
     	            "on_complete": {
     	                "redirect": "https://whats.ziro.app/.netlify/functions/response"
