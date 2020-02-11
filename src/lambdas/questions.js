@@ -8,22 +8,12 @@ const questions = async (event, context, callback) => {
                     "name": "leads_ziro",
                     "questions": [
                         {
-        		            "question": "1) Olá, Digite seu cnpj para sabermos se podemos atendê-lo",
+        		            "question": "1) Olá,                                                                                                                                                             Digite seu cnpj para sabermos se podemos atendê-lo",
                             "name": "cnpj_cliente",
                             "type": "Twilio.NUMBER_SEQUENCE"
         		        },
         		        {
-                            "question": "2) Vamos atendê-lo. Escolha um produto da lista abaixo para comprar\
-                                            vestido de festa\
-                                            saia\
-                                            camisa\
-                                            t-shirt\
-                                            jeans\
-                                            legging\
-                                            shorts\
-                                            colete\
-                                            jaqueta\
-                                            Bikini",
+                            "question": "2) Vamos atendê-lo. Escolha um produto da lista abaixo para comprar\n\ vestido de festa\n\ saia\n\ camisa\n\ t-shirt\n\ jeans\n\ legging\n\ shorts\n\ colete\n\ jaqueta\n\ Bikini",
                             "name": "lista_produtos1",
                             "type": "Lista"
         		        },
