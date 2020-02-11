@@ -11,7 +11,8 @@ const questions = async (event, context, callback) => {
         		            "question": "1) Olá,                                                                                                                                                             Digite seu cnpj para sabermos se podemos atendê-lo",
                             "name": "cnpj_cliente",
                             "type": "Twilio.NUMBER_SEQUENCE"
-        		        }        		      
+        		        },
+        		      
 	                ],
     	            "on_complete": {
     	                "redirect": "https://whats.ziro.app/.netlify/functions/response"

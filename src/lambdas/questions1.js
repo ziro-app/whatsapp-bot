@@ -8,16 +8,16 @@ const questions1 = async (event, context, callback) => {
                     "name": "leads_ziro",
                     "questions": [                      
         		        {
-                            "question": "2) Escolha um produto da lista abaixo para comprar\
-                                            vestido de festa\
-                                            saia\
-                                            camisa\
-                                            t-shirt\
-                                            jeans\
-                                            legging\
-                                            shorts\
-                                            colete\
-                                            jaqueta\
+                            "question": "2) Escolha um produto da lista abaixo para comprar\r\n
+                                            vestido de festa\r\n
+                                            saia\r\n
+                                            camisa\r\n
+                                            t-shirt\r\n
+                                            jeans\r\n
+                                            legging\r\n
+                                            shorts\r\n
+                                            colete\r\n
+                                            jaqueta\r\n
                                             Bikini",
                             "name": "lista_produtos1",
                             "type": "Lista"
