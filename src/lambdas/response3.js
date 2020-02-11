@@ -5,10 +5,9 @@ const response3 = async (event, context, callback) => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-             memory.twilio.collected_data.leads_ziro.answers
+            memory.twilio.collected_data.leads_ziro.answers
             
             const horarioContato= memory.twilio.collected_data.leads_ziro.answers.horario_contato.answer
-            
             console.log(horarioContato)
             
             const message = "Obrigado!! Logo um dos nossos colaboradores entrará em contato"

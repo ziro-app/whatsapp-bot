@@ -7,12 +7,10 @@ const response = async (event, context, callback) => {
             console.log(memory)
             
             const cnpj = memory.twilio.collected_data.leads_ziro.answers.cnpj_cliente.answer
-           
             console.log(cnpj)
             
-            const message = "Seu cnpj é "+cnpj+ " para prosseguir digite ok!" 
+            const message = "Seu CNPJ é "+cnpj+ " para prosseguir digite ok!" 
             const responseObject = {
-                
                 "actions": [
                     {
                         "say": {

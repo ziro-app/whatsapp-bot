@@ -5,8 +5,8 @@ const response1 = async (event, context, callback) => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-            const {lista_produtos1, lista_produtos2, lista_produtos3,} = memory.twilio.collected_data.leads_ziro.answers
             
+            const {lista_produtos1, lista_produtos2, lista_produtos3,} = memory.twilio.collected_data.leads_ziro.answers
             const produtos1 = lista_produtos1.answer
             const produtos2 = lista_produtos2.answer
             const produtos3 = lista_produtos3.answer

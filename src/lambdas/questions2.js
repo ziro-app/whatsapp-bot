@@ -22,7 +22,7 @@ const questions2 = async (event, context, callback) => {
         		            "question": "7) Por quanto você vende um(a) " ,
                             "name": "venda_produto3",
                             "type": "Twilio.NUMBER_SEQUENCE"
-        	            },
+        	            }
 	                ],
     	            "on_complete": {
     	                "redirect": "https://whats.ziro.app/.netlify/functions/response2"

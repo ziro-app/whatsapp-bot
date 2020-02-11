@@ -12,9 +12,8 @@ const questions2 = async (event, context, callback) => {
         		            "question": "Perfeito, qual é o melhor horário para entrarmos em contato? " ,
                             "name": "horario_contato",
                             "type": "Twilio.TIME"
-                        },
-                        
-	                ],
+                        }
+                    ],
     	            "on_complete": {
     	                "redirect": "https://whats.ziro.app/.netlify/functions/response3"
                     }
