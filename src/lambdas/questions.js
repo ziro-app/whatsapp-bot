@@ -28,12 +28,12 @@ const questions = async (event, context, callback) => {
                             "type": "Lista"
         		        },
                         {
-        		            "question": "*3)* Escolha mais um produto",
+        		            "question": "3) Escolha mais um produto",
                             "name": "lista_produtos2",
                             "type": "Lista"
         		        },
                         {
-        		            "question": "*4)* Escolha o terceiro e último",
+        		            "question": "4) Escolha o terceiro e último",
                             "name": "lista_produtos3",
                             "type": "Lista"
         	            }
