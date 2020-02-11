@@ -15,7 +15,7 @@ const response1 = async (event, context, callback) => {
             console.log(produtos2)
             console.log(produtos3)
            
-            const message = "voce escolheu "+ produtos1 + " " +produtos2+ " " +produtos3
+            const message = "voce escolheu "+ produtos1 + " " +produtos2+ " " +produtos3+ "vamos continuar?"
             const responseObject = {
                 "actions": [
                     {
