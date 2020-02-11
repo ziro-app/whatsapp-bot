@@ -1,4 +1,7 @@
 const main = require('../templates/main')
+const respo1 = require('../lambdas/response1')
+
+const produtos = respo1
 
 const questions2 = async (event, context, callback) => {
     const responseObject = {
@@ -9,17 +12,17 @@ const questions2 = async (event, context, callback) => {
                     "questions": [
                      
                         {
-        		            "question": "5) Por quanto você vende um(a) " ,
+        		            "question": "5) A partir de que valor você vende um(a) "+ produtos.produtos1,
                             "name": "venda_produto1",
                             "type": "Twilio.NUMBER_SEQUENCE"
                         },
                         {
-        		            "question": "6) Por quanto você vende um(a) " ,
+        		            "question": "6) A partir de que valor você vende um(a) " ,
                             "name": "venda_produto2",
                             "type": "Twilio.NUMBER_SEQUENCE"
                         },
                         {
-        		            "question": "7) Por quanto você vende um(a) " ,
+        		            "question": "7) A partir de que valor você vende um(a) " ,
                             "name": "venda_produto3",
                             "type": "Twilio.NUMBER_SEQUENCE"
         	            }
