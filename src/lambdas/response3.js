@@ -1,20 +1,17 @@
 const main = require('../templates/main')
 
-const response2 = async (event, context, callback) => {
+const response3 = async (event, context, callback) => {
     try {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-            const {venda_produto1, venda_produto2, venda_produto3 } = memory.twilio.collected_data.leads_ziro.answers
+             memory.twilio.collected_data.leads_ziro.answers
             
-            const vendaprod1 = venda_produto1.answer
-            const vendaprod2 = venda_produto2.answer
-            const vendaprod3 = venda_produto3.answer
-           
-            console.log(vendaprod1)
-            console.log(vendaprod2)
-            console.log(vendaprod3)
-            const message = "Recebemos os valores, Segue o Instagram de algumas opções de marca, se você gostou nos mande um gostei! "
+            const horarioContato= memory.twilio.collected_data.leads_ziro.answers.horario_contato.answer
+            
+            console.log(horarioContato)
+            
+            const message = "Obrigado!! Logo um dos nossos colaboradores entrará em contato"
             const responseObject = {
                 "actions": [
                     {
@@ -40,4 +37,4 @@ const response2 = async (event, context, callback) => {
     }
 }
 
-exports.handler = main(response2)
+exports.handler = main(response3)
