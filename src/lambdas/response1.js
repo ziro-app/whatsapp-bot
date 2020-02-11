@@ -1,16 +1,21 @@
 const main = require('../templates/main')
 
-const response = async (event, context, callback) => {
+const response1 = async (event, context, callback) => {
     try {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
+            const {lista_produtos1, lista_produtos2, lista_produtos3,} = memory.twilio.collected_data.leads_ziro.answers
             
-            const cnpj = memory.twilio.collected_data.leads_ziro.answers.cnpj_cliente.answer
+            const produtos1 = lista_produtos1.answer
+            const produtos2 = lista_produtos2.answer
+            const produtos3 = lista_produtos3.answer
+        
+            console.log(produtos1)
+            console.log(produtos2)
+            console.log(produtos3)
            
-            console.log(cnpj)
-            
-            const message = "Vamos atende-lo "+cnpj 
+            const message = "voce escolheu "+ produtos1 + " " +produtos2+ " " +produtos3
             const responseObject = {
                 "actions": [
                     {
@@ -36,4 +41,4 @@ const response = async (event, context, callback) => {
     }
 }
 
-exports.handler = main(response)
+exports.handler = main(response1)
