@@ -10,7 +10,7 @@ const response = async (event, context, callback) => {
            
             console.log(cnpj)
             
-            const message = "Vamos atende-lo "+cnpj 
+            const message = "Seu cnpj é "+cnpj+ " vamos prosseguir?" 
             const responseObject = {
                 "actions": [
                     {
