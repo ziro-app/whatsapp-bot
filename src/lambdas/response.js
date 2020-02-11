@@ -5,16 +5,16 @@ const response = async (event, context, callback) => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-            const { first_name, clothes_type, num_clothes, shipping_country } = memory.twilio.collected_data.collect_clothes_order.answers
-            const nome = first_name.answer
-            const tipo = clothes_type.answer
-            const roupas = num_clothes.answer
-            const pais = shipping_country.answer
-            console.log(nome)
-            console.log(tipo)
-            console.log(roupas)
-            console.log(pais)
-            const message = "Ok " + nome + ". Sua compra de " + roupas + " " + tipo + " esta confirmada. Entregaremos no " + pais
+            const { cnpj_cliente, lista_produtos1, lista_produtos2, lista_produtos3 } = memory.twilio.collected_data.leads_ziro.answers
+            const cnpj = cnpj_cliente.answer
+            const produtos1 = lista_produtos1.answer
+            const produtos2 = lista_produtos2.answer
+            const produtos3 = lista_produtos3.answer
+            console.log(cnpj)
+            console.log(produtos1)
+            console.log(produtos2)
+            console.log(produtos3)
+            const message = cnpj + "  " + produtos1 + " " + produtos2 + "  " + produtos3 
             const responseObject = {
                 "actions": [
                     {
