@@ -5,27 +5,37 @@ const questions = async (event, context, callback) => {
         "actions": [
             {
                 "collect": {
-                    "name": "collect_clothes_order",
+                    "name": "leads_ziro",
                     "questions": [
                         {
-        		            "question": "What is your first name?",
-                            "name": "first_name",
-                            "type": "Twilio.FIRST_NAME"
+        		            "question": "1) Digite seu cnpj para sabermos se podemos atendê-lo",
+                            "name": "cnpj_cliente",
+                            "type": "Twilio.NUMBER_SEQUENCE"
         		        },
         		        {
-        		            "question": "What type of clothes would you like?",
-                            "name": "clothes_type",
-                            "type": "Clothing"
+                            "question": "2) Vamos atendê-lo. Escolha um produto da lista abaixo para comprar\n\
+                                            vestido de festa\n\
+                                            saia\n\
+                                            camisa\n\
+                                            t-shirt\n\
+                                            jeans\n\
+                                            legging\n\
+                                            shorts\n\
+                                            colete\n\
+                                            jaqueta\n\
+                                            Bikini",
+                            "name": "lista_produtos1",
+                            "type": "Lista"
         		        },
                         {
-        		            "question": "How many would you like to order?",
-                            "name": "num_clothes",
-                            "type": "Twilio.NUMBER"
+        		            "question": "3) Escolha mais um produto",
+                            "name": "lista_produtos2",
+                            "type": "Lista"
         		        },
                         {
-        		            "question": "What country is your shipping address in?",
-                            "name": "shipping_country",
-                            "type": "Twilio.COUNTRY"
+        		            "question": "4) Escolha o terceiro e último",
+                            "name": "lista_produtos3",
+                            "type": "Lista"
         	            }
 	                ],
     	            "on_complete": {
