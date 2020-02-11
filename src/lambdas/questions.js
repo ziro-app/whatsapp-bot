@@ -38,17 +38,17 @@ const questions = async (event, context, callback) => {
                             "type": "Lista"
                         },
                         {
-        		            "question": "5) Por quanto você vende um(a) "+ produtos1 ,
+        		            "question": "5) Por quanto você vende um(a) " ,
                             "name": "venda_produto1",
                             "type": "Twilio.NUMBER_SEQUENCE"
                         },
                         {
-        		            "question": "6) Por quanto você vende um(a) "+ produtos2 ,
+        		            "question": "6) Por quanto você vende um(a) " ,
                             "name": "venda_produto2",
                             "type": "Twilio.NUMBER_SEQUENCE"
                         },
                         {
-        		            "question": "6) Por quanto você vende um(a) "+ produtos3 ,
+        		            "question": "6) Por quanto você vende um(a) " ,
                             "name": "venda_produto3",
                             "type": "Twilio.NUMBER_SEQUENCE"
         	            },
