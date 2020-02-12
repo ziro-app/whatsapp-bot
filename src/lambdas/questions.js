@@ -5,7 +5,8 @@ const questions = async (event, context, callback) => {
         "actions": [{
                 "collect": {
                     "name": "leads_ziro",
-                    "questions": [{
+                    "questions": [
+                        {
                         "question": "1) Olá,                                                                                                                                                             Digite seu cnpj para sabermos se podemos atendê-lo",
                         "name": "cnpj_cliente",
                         "type": "Twilio.NUMBER_SEQUENCE"
@@ -17,8 +18,9 @@ const questions = async (event, context, callback) => {
             },
             {
                 "collect": {
-                    "name": "leads_ziro1",
-                    "questions": [{
+                    "name": "leads_ziro",
+                    "questions": [
+                        {
                             "question": "2) Escolha um produto da lista abaixo para comprar",
                             "name": "lista_produtos1",
                             "type": "Lista"
@@ -41,9 +43,8 @@ const questions = async (event, context, callback) => {
             },
             {
                 "collect": {
-                    "name": "leads_ziro2",
+                    "name": "leads_ziro",
                     "questions": [
-    
                         {
                             "question": "5) A partir de que valor você vende um(a) ",
                             "name": "venda_produto1",
@@ -65,12 +66,10 @@ const questions = async (event, context, callback) => {
                     }
                 }
             },
-            {
-    
+            {    
                 "collect": {
-                    "name": "leads_ziro3",
-                    "questions": [
-    
+                    "name": "leads_ziro",
+                    "questions": [    
                         {
                             "question": "Perfeito, qual é o melhor horário para entrarmos em contato? ",
                             "name": "horario_contato",
