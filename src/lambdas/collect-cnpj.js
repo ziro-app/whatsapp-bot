@@ -1,8 +1,9 @@
 const main = require('../templates/main')
 
-const questions = async (event, context, callback) => {
+const collectCnpj = async (event, context, callback) => {
     const responseObject = {
-        "actions": [{
+        "actions": [
+            {
                 "collect": {
                     "name": "leads_ziro",
                     "questions": [
@@ -15,33 +16,8 @@ const questions = async (event, context, callback) => {
                         "redirect": "https://whats.ziro.app/.netlify/functions/response"
                     }
                 }
-            },
-            {
-                "collect": {
-                    
-                    "questions": [
-                        {
-                            "question": "2) Escolha um produto da lista abaixo para comprar",
-                            "name": "lista_produtos1",
-                            "type": "Lista"
-                        },
-                        {
-                            "question": "3) Escolha mais um produto",
-                            "name": "lista_produtos2",
-                            "type": "Lista"
-                        },
-                        {
-                            "question": "4) Escolha o terceiro e último",
-                            "name": "lista_produtos3",
-                            "type": "Lista"
-                        }
-                    ],
-                    "on_complete": {
-                        "redirect": "https://whats.ziro.app/.netlify/functions/response1"
-                    }
-                }
             }
-        ]
+       ]
     }
     return {
         statusCode: 200,
@@ -49,4 +25,4 @@ const questions = async (event, context, callback) => {
     }
 }
 
-exports.handler = main(questions)
+exports.handler = main(collectCnpj)

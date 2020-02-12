@@ -14,9 +14,29 @@ const response = async (event, context, callback) => {
             const responseObject = {
                 "actions": [
                     {
-                        "say": {
-                            "speech": message
-                        } 
+                        "collect": {
+                            "name": "leads_ziro",
+                            "questions": [
+                                {
+                                    "question": "2) ok, obrigado!! Escolha um produto da lista abaixo para comprar",
+                                    "name": "lista_produtos1",
+                                    "type": "Lista"
+                                },
+                                {
+                                    "question": "3) Escolha mais um produto",
+                                    "name": "lista_produtos2",
+                                    "type": "Lista"
+                                },
+                                {
+                                    "question": "4) Escolha o terceiro e último",
+                                    "name": "lista_produtos3",
+                                    "type": "Lista"
+                                }
+                            ],
+                            "on_complete": {
+                                "redirect": "https://whats.ziro.app/.netlify/functions/response"
+                            }
+                        }
                     }
                 ]
             }
