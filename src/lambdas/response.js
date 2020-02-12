@@ -39,7 +39,10 @@ const response = async (event, context, callback) => {
                         }
                     }
                 ]
+
+
             }
+            console.log(cnpj)
           	return {
                 statusCode: 200,
                 body: JSON.stringify(responseObject, null, 4)
