@@ -7,7 +7,7 @@ const questions = async (event, context, callback) => {
                     "name": "leads_ziro",
                     "questions": [
                         {
-                        "question": "1) Olá,                                                                                                                                                             Digite seu cnpj para sabermos se podemos atendê-lo",
+                        "question": "1) Olá, Digite seu cnpj para sabermos se podemos atendê-lo",
                         "name": "cnpj_cliente",
                         "type": "Twilio.NUMBER_SEQUENCE"
                     }],
@@ -18,7 +18,7 @@ const questions = async (event, context, callback) => {
             },
             {
                 "collect": {
-                    "name": "leads_ziro",
+                    "name": "leads_ziro1",
                     "questions": [
                         {
                             "question": "2) Escolha um produto da lista abaixo para comprar",
