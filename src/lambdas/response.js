@@ -34,7 +34,7 @@ const response = async (event, context, callback) => {
                                 }
                             ],
                             "on_complete": {
-                                "redirect": "https://whats.ziro.app/.netlify/functions/response"
+                                "redirect": "https://stoic-raman-693097.netlify.com/.netlify/functions/response"
                             }
                         }
                     }
