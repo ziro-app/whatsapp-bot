@@ -17,7 +17,8 @@ const questions = async (event, context, callback) => {
                 }
             },
             {
-                                    
+                "collect": {
+                    
                     "questions": [
                         {
                             "question": "2) Escolha um produto da lista abaixo para comprar",
@@ -39,7 +40,7 @@ const questions = async (event, context, callback) => {
                         "redirect": "https://whats.ziro.app/.netlify/functions/response1"
                     }
                 }
-            
+            }
         ]
     }
     return {
