@@ -18,6 +18,7 @@ const questions = async (event, context, callback) => {
             },
             {
                 "collect": {
+                    
                     "questions": [
                         {
                             "question": "2) Escolha um produto da lista abaixo para comprar",
