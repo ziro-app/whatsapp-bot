@@ -13,7 +13,7 @@ const collectCnpj = async (event, context, callback) => {
                         "type": "Twilio.NUMBER_SEQUENCE"
                     }],
                     "on_complete": {
-                        "redirect": "https://stoic-raman-693097.netlify.com/.netlify/functions/response"
+                        "redirect": "https://whats.ziro.app/.netlify/functions/response"
                     }
                 }
             }
