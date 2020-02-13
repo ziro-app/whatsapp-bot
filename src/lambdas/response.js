@@ -6,8 +6,25 @@ const response = async (event, context, callback) => {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
             
-            const cnpj = memory.twilio.collected_data.leads_ziro.answers.cnpj_cliente.answer
+            
+            const {vendaprod1, vendaprod2, vendaprod3, cnpj_cliente, lista_produtos1, lista_produtos2, lista_produtos3,} = memory.twilio.collected_data.leads_ziro.answers
+            const cnpj = cnpj_cliente.answer
+            const produtos1 = lista_produtos1.answer
+            const produtos2 = lista_produtos2.answer
+            const produtos3 = lista_produtos3.answer
+            const vendaprod1 = venda_produto1.answer
+            const vendaprod2 = venda_produto2.answer
+            const vendaprod3 = venda_produto3.answer
+           
+          
             console.log(cnpj)
+            console.log(produtos1)
+            console.log(produtos2)
+            console.log(produtos3)
+            console.log(vendaprod1)
+            console.log(vendaprod2)
+            console.log(vendaprod3)
+
             console.log(memory.twilio.collected_data.leads_ziro)
             
             const message = "Seu CNPJ é "+cnpj+ " para prosseguir digite ok!" 
