@@ -5,8 +5,7 @@ const response = async (event, context, callback) => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-            
-            
+                        
             const {vendaprod1, vendaprod2, vendaprod3, cnpj_cliente, lista_produtos1, lista_produtos2, lista_produtos3,} = memory.twilio.collected_data.leads_ziro.answers
             const cnpj = cnpj_cliente.answer
             const produtos1 = lista_produtos1.answer
@@ -15,8 +14,7 @@ const response = async (event, context, callback) => {
             const vendaprod1 = venda_produto1.answer
             const vendaprod2 = venda_produto2.answer
             const vendaprod3 = venda_produto3.answer
-           
-          
+                     
             console.log(cnpj)
             console.log(produtos1)
             console.log(produtos2)
@@ -27,7 +25,6 @@ const response = async (event, context, callback) => {
 
             console.log(memory.twilio.collected_data.leads_ziro)
             
-            const message = "Seu CNPJ é "+cnpj+ " para prosseguir digite ok!" 
             const responseObject = {
                 "actions": [
                     {
@@ -56,8 +53,6 @@ const response = async (event, context, callback) => {
                         }
                     }
                 ]
-
-
             }
             console.log(cnpj)
           	return {
