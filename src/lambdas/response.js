@@ -32,7 +32,7 @@ const response = async (event, context, callback) => {
                             "name": "leads_ziro",
                             "questions": [
                                 {
-                                    "question": "2) ok, obrigado!! Escolha um produto da lista para comprar -- camisa - shorts - colete - jeans - t-shirt ",
+                                    "question": "2) ok, obrigado!! Escolha um produto da lista para comprar -- camisa -- shorts -- colete -- jeans -- t-shirt -- jaqueta -- bikini ",
                                     "name": "lista_produtos1",
                                     "type": "Lista"
                                 },
