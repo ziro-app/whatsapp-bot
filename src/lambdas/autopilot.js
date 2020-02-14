@@ -36,7 +36,7 @@ const autopilot = async event => {
 								vestido longo
 				            `,
 		                    "name": "product",
-		                    "type": "Products"
+		                    "type": "Lista"
 				        }
 		            ],
 		            "on_complete": {
@@ -47,6 +47,7 @@ const autopilot = async event => {
 		    }]
 		}
 		return {
+			headers: { 'Content-Type': 'application/json' }
 			statusCode: 200,
 			body: JSON.stringify(actions, null, 4)
 		}
@@ -54,7 +55,7 @@ const autopilot = async event => {
 }
 
 const handler = middy(autopilot)
-	.use(httpUrlencodeBodyParser())
+	// .use(httpUrlencodeBodyParser())
 	.use(httpErrorHandler())
 
 module.exports = { handler }
