@@ -6,48 +6,51 @@ const createError = require('http-errors')
 const autopilot = async event => {
 	try {
 		console.log(event)
-		const actions = {
-		    "actions": [{
-		        "collect": {
-		            "name": "product_types",
-		            "questions": [
-		                {
-				            "question": `Qual produto deseja comprar no Bom Retiro? As opções são: \n
-								bijuteria
-								blazer
-								blusa
-								body
-								bolsa
-								calca
-								camisa
-								cardigan
-								kimono
-								casaco
-								cinto
-								conjunto
-								cropped
-								jaqueta
-								macacao
-								macaquinho
-								short
-								saia
-								tshirt
-								vestido curto
-								vestido longo
-				            `,
-		                    "name": "product",
-		                    "type": "Lista"
-				        }
-		            ],
-		            "on_complete": {
-		                "say": "Obrigado"
-		                // "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
-		            }
-		        }
-		    }]
+		if (event.body.Memory) {
+			const memory = JSON.parse(event.body.Memory)
+			const actions = {
+			    "actions": [{
+			        "collect": {
+			            "name": "product_types",
+			            "questions": [
+			                {
+					            "question": `Qual produto deseja comprar no Bom Retiro? As opções são: \n
+									bijuteria
+									blazer
+									blusa
+									body
+									bolsa
+									calca
+									camisa
+									cardigan
+									kimono
+									casaco
+									cinto
+									conjunto
+									cropped
+									jaqueta
+									macacao
+									macaquinho
+									short
+									saia
+									tshirt
+									vestido curto
+									vestido longo
+					            `,
+			                    "name": "product",
+			                    "type": "Lista"
+					        }
+			            ],
+			            "on_complete": {
+			                "say": "Obrigado"
+			                // "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+			            }
+			        }
+			    }]
+			}
 		}
 		return {
-			headers: { 'Content-Type': 'application/json' }
+			headers: { 'Content-Type': 'application/json' },
 			statusCode: 200,
 			body: JSON.stringify(actions, null, 4)
 		}
