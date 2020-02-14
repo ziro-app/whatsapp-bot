@@ -4,8 +4,8 @@
   "description": "api whatsapp bot",
   "main": "index.js",
   "scripts": {
-    "start": "netlify-lambda serve -c ./webpack.functions.js ./src/lambdas",
-    "build": "netlify-lambda build -c ./webpack.functions.js ./src/lambdas"
+    "start": "netlify-lambda serve ./src/lambdas",
+    "build": "netlify-lambda build ./src/lambdas"
   },
   "repository": {
     "type": "git",
