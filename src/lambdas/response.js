@@ -5,25 +5,56 @@ const response = async (event, context, callback) => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-            const { first_name, clothes_type, num_clothes, shipping_country } = memory.twilio.collected_data.collect_clothes_order.answers
-            const nome = first_name.answer
-            const tipo = clothes_type.answer
-            const roupas = num_clothes.answer
-            const pais = shipping_country.answer
-            console.log(nome)
-            console.log(tipo)
-            console.log(roupas)
-            console.log(pais)
-            const message = "Ok " + nome + ". Sua compra de " + roupas + " " + tipo + " esta confirmada. Entregaremos no " + pais
+                        
+            const {vendaprod1, vendaprod2, vendaprod3, cnpj_cliente, lista_produtos1, lista_produtos2, lista_produtos3,} = memory.twilio.collected_data.leads_ziro.answers
+            const cnpj = cnpj_cliente.answer
+            const produtos1 = lista_produtos1.answer
+            const produtos2 = lista_produtos2.answer
+            const produtos3 = lista_produtos3.answer
+            const vendaprod1 = venda_produto1.answer
+            const vendaprod2 = venda_produto2.answer
+            const vendaprod3 = venda_produto3.answer
+                     
+            console.log(cnpj)
+            console.log(produtos1)
+            console.log(produtos2)
+            console.log(produtos3)
+            console.log(vendaprod1)
+            console.log(vendaprod2)
+            console.log(vendaprod3)
+
+            console.log(memory.twilio.collected_data.leads_ziro)
+            
             const responseObject = {
                 "actions": [
                     {
-                        "say": {
-                            "speech": message
-                        } 
+                        "collect": {
+                            "name": "leads_ziro",
+                            "questions": [
+                                {
+                                    "question": "2) ok, obrigado!! Escolha um produto da lista para comprar -- camisa -- shorts -- colete -- jeans -- t-shirt -- jaqueta -- bikini ",
+                                    "name": "lista_produtos1",
+                                    "type": "Lista"
+                                },
+                                {
+                                    "question": "3) Escolha mais um produto",
+                                    "name": "lista_produtos2",
+                                    "type": "Lista"
+                                },
+                                {
+                                    "question": "4) Escolha o terceiro e último",
+                                    "name": "lista_produtos3",
+                                    "type": "Lista"
+                                }
+                            ],
+                            "on_complete": {
+                                "redirect": "https://whats.ziro.app/.netlify/functions/response"
+                            }
+                        }
                     }
                 ]
             }
+            console.log(cnpj)
           	return {
                 statusCode: 200,
                 body: JSON.stringify(responseObject, null, 4)
