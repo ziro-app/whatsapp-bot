@@ -99,18 +99,13 @@ exports.pickStyle = {
     }]
 }
 
-const acceptSelectionQuestion = `Pronto! Separamos para você as seguintes marcas:\n
-${selection}\n
-O que achou? Gostou da seleção?
-`
-
 exports.acceptSelection = selection => ({
     "actions": [{
         "collect": {
             "name": "selection",
             "questions": [
                 {
-		            "question": acceptSelectionQuestion,
+		            "question": `Pronto! Separamos para você as seguintes marcas:\n${selection}\nO que achou? Gostou da seleção?`,
                     "name": "selection",
                     "type": "SimNao"
 		        }
