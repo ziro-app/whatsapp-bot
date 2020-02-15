@@ -44,8 +44,7 @@ const autopilot = async event => {
 					        }
 			            ],
 			            "on_complete": {
-			                "say": "Obrigado"
-			                // "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+			                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
 			            }
 			        }
 			    }]
