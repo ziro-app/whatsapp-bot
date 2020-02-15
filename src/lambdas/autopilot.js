@@ -7,7 +7,7 @@ const {
 	pickProducts,
 	pickPrices,
 	pickStyle,
-	acceptSelection
+	acceptSelection,
 	end
 } = require('../utils/messages')
 
