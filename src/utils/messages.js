@@ -21,17 +21,17 @@ exports.pickProducts = {
                 {
 		            "question": pickFirstProductQuestion,
                     "name": "productOne",
-                    "type": "Lista"
+                    "type": "Produtos"
 		        },
                 {
 		            "question": "Agora, escolhe pra gente um segundo produto da lista",
                     "name": "productTwo",
-                    "type": "Lista"
+                    "type": "Produtos"
 		        },
                 {
 		            "question": "Por fim, escolhe o terceiro e último produto da lista",
                     "name": "productThree",
-                    "type": "Lista"
+                    "type": "Produtos"
 		        }
             ],
             "on_complete": {
