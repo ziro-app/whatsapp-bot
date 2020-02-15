@@ -16,44 +16,18 @@ const autopilot = async event => {
 			            "questions": [
 			                {
 					            "question": `Qual produto deseja comprar no Bom Retiro? As opções são:
-<table>
-  <tr>
-    <th>Firstname</th>
-    <th>Lastname</th>
-    <th>Age</th>
-  </tr>
-  <tr>
-    <td>Jill</td>
-    <td>Smith</td>
-    <td>50</td>
-  </tr>
-  <tr>
-    <td>Eve</td>
-    <td>Jackson</td>
-    <td>94</td>
-  </tr>
-</table>
-									bijuteria
-									blazer
-									blusa
-									body
-									bolsa
-									calca
-									camisa
-									cardigan
-									kimono
-									casaco
-									cinto
-									conjunto
-									cropped
-									jaqueta
-									macacao
-									macaquinho
-									short
-									saia
-									tshirt
-									vestido curto
-									vestido longo
+bijuteria \t\t jaqueta
+blazer \t\t kimono
+blusa \t\t macacao
+body \t\t macaquinho
+bolsa \t\t saia
+calca \t\t short
+camisa \t\t tshirt
+cardigan \t\t vestido curto
+casaco \t\t vestido longo
+cinto
+conjunto
+cropped
 					            `,
 			                    "name": "product",
 			                    "type": "Lista"
