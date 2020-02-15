@@ -6,7 +6,7 @@ const { productTypes, pickSecondProduct} = require('../utils/messages')
 
 const autopilot = async event => {
 	try {
-		if (event.body.Memory) {)
+		if (event.body.Memory) {
 			const memory = JSON.parse(event.body.Memory)
 			console.log(memory)
 			const { collected_data } = memory.twilio
