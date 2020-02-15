@@ -19,8 +19,31 @@ const model = async () => {
 				preco: Preco
 			}
 		})
-		console.log(transformedBase)
-		
+		// console.log(transformedBase)
+		const transformedProducts = products.map(product => {
+			const { fabricante, tipo, ...productList } = product
+			const productEntries = Object.entries(productList)
+			const productArrayList = productEntries.map(entry => {
+				const [productName, availability] = entry
+				if (availability === 's')
+					return productName
+				return null
+			}).filter(productName => !!productName)
+			return {
+				nome: fabricante,
+				produtos: productArrayList
+			}
+		})
+		console.log(transformedProducts)
+		const fullBase = transformedBase.map(supplier => {
+			const match = transformedProducts.find(product => product.nome === supplier.nome)
+			console.log(match)
+			const { nome, produtos } = match
+			return { ...supplier, produtos }
+		})
+		console.log(fullBase)
+		console.log(transformedBase.length)
+		console.log(transformedProducts.length)
 	} catch (error) {
 		console.log(error)
 	} 
