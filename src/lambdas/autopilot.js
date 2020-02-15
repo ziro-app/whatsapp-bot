@@ -16,9 +16,14 @@ const autopilot = async event => {
 			const { collected_data } = memory.twilio
 			console.log('collected_data',collected_data)
 			if (!collected_data) return responseOk(pickFirstProduct)
-			console.log('collected_data.answers',collected_data.product_types.answers)
-			if (collected_data.product_types.answers.productOne) return responseOk(pickSecondProduct)
-			if (collected_data.product_types.answers.productTwo) return responseOk(pickThirdProduct)
+			if (collected_data.product_types.answers.productOne) {
+				console.log('collected_data.answers',collected_data.product_types.answers)
+				return responseOk(pickSecondProduct)
+			}
+			if (collected_data.product_types.answers.productTwo) {
+				console.log('collected_data.answers',collected_data.product_types.answers)
+				return responseOk(pickThirdProduct)
+			}
 		}
 		return {
 			headers: { 'Content-Type': 'application/json' },
