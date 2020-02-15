@@ -7,6 +7,7 @@ const {
 	pickProducts,
 	pickPrices,
 	pickStyle,
+	acceptSelection
 	end
 } = require('../utils/messages')
 
@@ -22,8 +23,8 @@ const autopilot = async event => {
 			if (collected_data.prices.status === 'complete' && !collected_data.style) {
 				return responseOk(pickStyle)
 			}
-			if (collected_data.style.status === 'complete') {
-				return responseOk(end)
+			if (collected_data.style.status === 'complete' && !collected_data.selection) {
+				return responseOk(acceptSelection('Absolutti, Amissima, Hush'))
 			}
 		}
 		throw createError(404, 'Invalid Twilio Request. Memory is empty')

@@ -99,8 +99,31 @@ exports.pickStyle = {
     }]
 }
 
+const acceptSelectionQuestion = `Pronto! Separamos para você as seguintes marcas:\n
+${selection}\n
+O que achou? Gostou da seleção?
+`
+
+exports.acceptSelection = selection => ({
+    "actions": [{
+        "collect": {
+            "name": "selection",
+            "questions": [
+                {
+		            "question": acceptSelectionQuestion,
+                    "name": "selection",
+                    "type": "SimNao"
+		        }
+            ],
+            "on_complete": {
+                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+            }
+        }
+    }]	
+})
+
 exports.end = {
     "actions": [{
-        "say": "Obrigado!"
+        "say": "Obrigado pelo seu tempo e por escolher a Ziro! Entraremos em contato em breve!"
     }]
 }
