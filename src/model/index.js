@@ -2,6 +2,7 @@ require('dotenv').config()
 const axios = require('axios')
 const config = require('./axiosConfig')
 const arrayObject = require('@ziro/array-object')
+const findSuppliers = require('./findSuppliers')
 
 const model = async () => {
 	try {
@@ -19,7 +20,6 @@ const model = async () => {
 				preco: Preco
 			}
 		})
-		// console.log(transformedBase)
 		const transformedProducts = products.map(product => {
 			const { fabricante, tipo, ...productList } = product
 			const productEntries = Object.entries(productList)
@@ -34,16 +34,22 @@ const model = async () => {
 				produtos: productArrayList
 			}
 		})
-		console.log(transformedProducts)
 		const fullBase = transformedBase.map(supplier => {
 			const match = transformedProducts.find(product => product.nome === supplier.nome)
-			console.log(match)
 			const { nome, produtos } = match
 			return { ...supplier, produtos }
 		})
 		console.log(fullBase)
-		console.log(transformedBase.length)
-		console.log(transformedProducts.length)
+		const targetSuppliers = findSuppliers('calca', 'Médio', 'Casual', fullBase)
+		console.log(targetSuppliers)
+		const targetNamesAndInstas = targetSuppliers.map(supplier => ({
+			nome: supplier.nome,
+			insta: supplier.insta
+		}))
+		console.log(targetNamesAndInstas)
+		// console.log(fullBase.length)
+		// console.log(transformedBase.length)
+		// console.log(transformedProducts.length)
 	} catch (error) {
 		console.log(error)
 	} 
