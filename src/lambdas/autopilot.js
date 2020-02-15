@@ -8,7 +8,7 @@ const autopilot = async event => {
 	try {
 		if (event.body.Memory) {
 			const memory = JSON.parse(event.body.Memory)
-			console.log(memory)
+			console.log('memory',memory)
 			const { collected_data } = memory.twilio
 			console.log('collected_data',collected_data)
 			if (!collected_data) {
@@ -18,8 +18,8 @@ const autopilot = async event => {
 					body: JSON.stringify(productTypes, null, 4)
 				}
 			}
-			if (collected_data.answers) {
-				console.log('collected_data.answers',collected_data.answers)
+			if (collected_data.product_types.answers) {
+				console.log('collected_data.answers',collected_data.product_types.answers)
 				return {
 					headers: { 'Content-Type': 'application/json' },
 					statusCode: 200,
