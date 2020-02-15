@@ -26,6 +26,7 @@ const autopilot = async event => {
 			if (collected_data.style.status === 'complete' && !collected_data.selection) {
 				return responseOk(acceptSelection('Absolutti, Amissima, Hush'))
 			}
+			return responseOk(end)
 		}
 		throw createError(404, 'Invalid Twilio Request. Memory is empty')
 	} catch (error) { throw error }
