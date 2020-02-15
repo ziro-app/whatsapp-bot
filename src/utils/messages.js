@@ -47,15 +47,15 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
             "name": "prices",
             "questions": [
                 {
-		            "question": `Certo! Seu primeiro produto foi: ${productOne.answer}. Por qual preço você vende esse produto?`,
+		            "question": `Certo! Seu primeiro produto foi: *${productOne.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
                     "name": "priceOne",
                     "type": "Twilio.NUMBER"
 		        },{
-		            "question": `Ok! Seu segundo produto foi: ${productTwo.answer}. Por qual preço você vende esse produto?`,
+		            "question": `Ok! Seu segundo produto foi: *${productTwo.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
                     "name": "priceTwo",
                     "type": "Twilio.NUMBER"
 		        },{
-		            "question": `Beleza! Pra terminar, seu terceiro produto foi: ${productThree.answer}. Por qual preço você vende esse produto?`,
+		            "question": `Beleza! Pra terminar, seu terceiro produto foi: *${productThree.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
                     "name": "priceThree",
                     "type": "Twilio.NUMBER"
 		        }
@@ -66,6 +66,38 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
         }
     }]
 })
+
+const pickStyleQuestion = `Ok! Estamos quase terminando!\n
+Agora precisamos saber acerca do estilo da sua loja\n
+Dentre as opções abaixo, qual melhor representa o estilo da sua loja?\n
+Casual
+Evangelico
+Festa
+Fitness
+Jeans
+Romantico
+Sexy
+Social
+Sofisticado
+`
+
+exports.pickStyle = {
+    "actions": [{
+        "collect": {
+            "name": "style",
+            "questions": [
+                {
+		            "question": pickStyleQuestion,
+                    "name": "style",
+                    "type": "Lista"
+		        }
+            ],
+            "on_complete": {
+                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+            }
+        }
+    }]
+}
 
 exports.end = {
     "actions": [{

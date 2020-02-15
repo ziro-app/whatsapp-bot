@@ -6,6 +6,7 @@ const responseOk = require('../utils/response')
 const {
 	pickProducts,
 	pickPrices,
+	pickStyle,
 	end
 } = require('../utils/messages')
 
@@ -16,9 +17,12 @@ const autopilot = async event => {
 			const { collected_data } = memory.twilio
 			console.log('collected_data',collected_data)
 			if (!collected_data) return responseOk(pickProducts)
-			if (collected_data.products.status === 'complete')
+			if (collected_data.products.status === 'complete' && !collected_data.prices)
 				return responseOk(pickPrices(collected_data.products.answers))
-			if (collected_data.prices.status === 'complete') {
+			if (collected_data.prices.status === 'complete' && !collected_data.style) {
+				return responseOk(pickStyle)
+			}
+			if (collected_data.style.status === 'complete') {
 				return responseOk(end)
 			}
 		}
