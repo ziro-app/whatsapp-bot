@@ -16,15 +16,10 @@ const autopilot = async event => {
 			const { collected_data } = memory.twilio
 			console.log('collected_data',collected_data)
 			if (!collected_data) return responseOk(pickProducts)
-			if (collected_data.products.answers) {
-				const { productOne, productTwo, productThree } = collected_data.products.answers
-				if (productOne && productTwo && productThree)
-					return responseOk(pickPrices(productOne, productTwo, productThree))
-
-			}
-			if (collected_data.prices.answers) {
-				const { priceOne, priceTwo, priceThree } = collected_data.prices.answers
-				if (priceOne && priceTwo && priceThree) return responseOk(end)
+			if (collected_data.products === 'complete')
+				return responseOk(pickPrices(collected_data.products.answers))
+			if (collected_data.prices === 'complete') {
+				return responseOk(end)
 			}
 		}
 		throw createError(404, 'Invalid Twilio Request. Memory is empty')

@@ -41,23 +41,23 @@ exports.pickProducts = {
     }]
 }
 
-exports.pickPrices = (productOne, productTwo, productThree) => ({
+exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
     "actions": [{
         "collect": {
             "name": "prices",
             "questions": [
                 {
-		            "question": `Certo! Seu primeiro produto foi: ${productOne}. Por qual preço você vende esse produto?`,
+		            "question": `Certo! Seu primeiro produto foi: ${productOne.answer}. Por qual preço você vende esse produto?`,
                     "name": "priceOne",
-                    "type": "Lista"
+                    "type": "Twilio.NUMBER"
 		        },{
-		            "question": `Ok! Seu segundo produto foi: ${productTwo}. Por qual preço você vende esse produto?`,
+		            "question": `Ok! Seu segundo produto foi: ${productTwo.answer}. Por qual preço você vende esse produto?`,
                     "name": "priceTwo",
-                    "type": "Lista"
+                    "type": "Twilio.NUMBER"
 		        },{
-		            "question": `Beleza! Pra terminar, seu terceiro produto foi: ${productThree}. Por qual preço você vende esse produto?`,
+		            "question": `Beleza! Pra terminar, seu terceiro produto foi: ${productThree.answer}. Por qual preço você vende esse produto?`,
                     "name": "priceThree",
-                    "type": "Lista"
+                    "type": "Twilio.NUMBER"
 		        }
             ],
             "on_complete": {
