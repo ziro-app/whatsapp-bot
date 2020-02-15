@@ -2,7 +2,7 @@ const middy = require('@middy/core')
 const httpUrlencodeBodyParser = require('@middy/http-urlencode-body-parser')
 const httpErrorHandler = require('@middy/http-error-handler')
 const createError = require('http-errors')
-const products = require('../utils/messages')
+const productsTypes = require('../utils/messages')
 
 const autopilot = async event => {
 	try {
@@ -16,7 +16,7 @@ const autopilot = async event => {
 			            "name": "product_types",
 			            "questions": [
 			                {
-					            "question": products,
+					            "question": productsTypes,
 			                    "name": "product",
 			                    "type": "Lista"
 					        }

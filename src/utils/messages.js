@@ -1,14 +1,16 @@
-const products = `Qual produto deseja comprar no Bom Retiro? As opções são:\n
-bijuteria\t\t\t\t\tcropped\n
-blazer\t\t\t\t\tjaqueta\n
-blusa\t\t\t\t\tkimono\n
-body\t\t\t\t\tmacacao\n
-bolsa\t\t\t\t\tmacaquinho\n
-calca\t\t\t\t\tsaia\n
-camisa\t\t\t\t\tshort\n
-cardigan\t\t\t\t\ttshirt\n
-casaco\t\t\t\t\tvestido curto\n
-cinto\t\t\t\t\tvestido longo\n
+const productsTypes = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!
+Te recomendamos as melhores marcas de acordo com o que você está procurando!
+Conta pra gente: Qual produto deseja comprar no Bom Retiro? As opções são:\n
+bijuteria\t\t\t\t\tcropped
+blazer\t\t\t\t\tjaqueta
+blusa\t\t\t\t\tkimono
+body\t\t\t\t\tmacacao
+bolsa\t\t\t\t\tmacaquinho
+calca\t\t\t\t\tsaia
+camisa\t\t\t\t\tshort
+cardigan\t\t\t\t\ttshirt
+casaco\t\t\t\t\tvestido curto
+cinto\t\t\t\t\tvestido longo
 conjunto\t\t\t\t\t`
 
-module.exports = products
+module.exports = productsTypes
