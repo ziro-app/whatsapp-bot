@@ -15,29 +15,30 @@ const autopilot = async event => {
 			            "name": "product_types",
 			            "questions": [
 			                {
-					            "question": `Qual produto deseja comprar no Bom Retiro? As opções são: \n
-									bijuteria
-									blazer
-									blusa
-									body
-									bolsa
-									calca
-									camisa
-									cardigan
-									kimono
-									casaco
-									cinto
-									conjunto
-									cropped
-									jaqueta
-									macacao
-									macaquinho
-									short
-									saia
-									tshirt
-									vestido curto
-									vestido longo
-					            `,
+					    //         "question": `Qual produto deseja comprar no Bom Retiro? As opções são: \n
+									// bijuteria
+									// blazer
+									// blusa
+									// body
+									// bolsa
+									// calca
+									// camisa
+									// cardigan
+									// kimono
+									// casaco
+									// cinto
+									// conjunto
+									// cropped
+									// jaqueta
+									// macacao
+									// macaquinho
+									// short
+									// saia
+									// tshirt
+									// vestido curto
+									// vestido longo
+					    //         `,
+					    		"question": `Olá`,
 			                    "name": "product",
 			                    "type": "Lista"
 					        }
