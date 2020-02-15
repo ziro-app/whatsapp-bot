@@ -6,7 +6,8 @@
   "scripts": {
     "start": "netlify-lambda serve ./src/lambdas",
     "build": "netlify-lambda build ./src/lambdas",
-    "model": "node ./src/model/index"
+    "model": "node ./src/model/index",
+    "test": "ava"
   },
   "repository": {
     "type": "git",
@@ -27,6 +28,10 @@
     "netlify-lambda": "^1.6.3"
   },
   "devDependencies": {
-    "@types/aws-lambda": "^8.10.40"
+    "@types/aws-lambda": "^8.10.40",
+    "ava": "^3.3.0"
+  },
+  "ava": {
+    "files": ["./tests/*"]
   }
 }

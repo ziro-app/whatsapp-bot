@@ -1,4 +1,4 @@
-const dataTransformations = (base, products, priceTable) => {
+const dataTransformations = (base, products) => {
 	const transformedBase = base.map(supplier => {
 		const { Fabricante, Instagram, Preco, Bot, ...styles } = supplier 
 		return {
@@ -22,13 +22,11 @@ const dataTransformations = (base, products, priceTable) => {
 			produtos: productArrayList
 		}
 	})
-	const fullBase = transformedBase.map(supplier => {
+	return transformedBase.map(supplier => {
 		const match = transformedProducts.find(product => product.nome === supplier.nome)
 		const { nome, produtos } = match
 		return { ...supplier, produtos }
 	})
-	console.log(priceTable)
-	return fullBase
 }
 
 module.exports = dataTransformations
