@@ -13,7 +13,7 @@ casaco\t\t\t\t\tvestido curto
 cinto\t\t\t\t\tvestido longo
 conjunto\t\t\t\t\t`
 
-const productTypes = {
+exports.productTypes = {
     "actions": [{
         "collect": {
             "name": "product_types",
@@ -31,7 +31,7 @@ const productTypes = {
     }]
 }
 
-const pickSecondProduct = {
+exports.pickSecondProduct = {
     "actions": [{
         "collect": {
             "name": "product_types",
@@ -48,6 +48,3 @@ const pickSecondProduct = {
         }
     }]
 }
-
-exports.productTypes
-exports.pickSecondProduct
