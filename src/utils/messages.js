@@ -1,4 +1,4 @@
-const productsTypes = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!\n
+const productTypesQuestion = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!\n
 Te recomendamos as melhores marcas de acordo com o que você está procurando!\n
 Conta pra gente: Qual produto deseja comprar no Bom Retiro? As opções são:\n
 bijuteria\t\t\t\t\tcropped
@@ -13,4 +13,41 @@ casaco\t\t\t\t\tvestido curto
 cinto\t\t\t\t\tvestido longo
 conjunto\t\t\t\t\t`
 
-module.exports = productsTypes
+const productTypes = {
+    "actions": [{
+        "collect": {
+            "name": "product_types",
+            "questions": [
+                {
+		            "question": productTypesQuestion,
+                    "name": "product",
+                    "type": "Lista"
+		        }
+            ],
+            "on_complete": {
+                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+            }
+        }
+    }]
+}
+
+const pickSecondProduct = {
+    "actions": [{
+        "collect": {
+            "name": "product_types",
+            "questions": [
+                {
+		            "question": "Agora, escolhe pra gente um segundo produto da lista",
+                    "name": "product",
+                    "type": "Lista"
+		        }
+            ],
+            "on_complete": {
+                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+            }
+        }
+    }]
+}
+
+exports.productTypes
+exports.pickSecondProduct
