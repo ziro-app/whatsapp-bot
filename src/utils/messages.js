@@ -1,5 +1,5 @@
-const productsTypes = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!
-Te recomendamos as melhores marcas de acordo com o que você está procurando!
+const productsTypes = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!\n
+Te recomendamos as melhores marcas de acordo com o que você está procurando!\n
 Conta pra gente: Qual produto deseja comprar no Bom Retiro? As opções são:\n
 bijuteria\t\t\t\t\tcropped
 blazer\t\t\t\t\tjaqueta
