@@ -2,7 +2,7 @@ const middy = require('@middy/core')
 const httpUrlencodeBodyParser = require('@middy/http-urlencode-body-parser')
 const httpErrorHandler = require('@middy/http-error-handler')
 const createError = require('http-errors')
-const responseOk = require('../utils/messages')
+const responseOk = require('../utils/response')
 const {
 	pickFirstProduct,
 	pickSecondProduct,
