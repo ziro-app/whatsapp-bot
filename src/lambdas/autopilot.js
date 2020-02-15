@@ -15,20 +15,37 @@ const autopilot = async event => {
 			            "name": "product_types",
 			            "questions": [
 			                {
-					            "question": `Qual produto deseja comprar no Bom Retiro? As opções são: \n
-									bijuteria \n
-									blazer \n
-									blusa \n
-									body \n
-									bolsa %0a
-									calca %0a
-									camisa %0a
-									cardigan %0a
-									kimono %0a
-									casaco %0a
-									cinto %0a
-									conjunto \n
-									cropped \n
+					            "question": `Qual produto deseja comprar no Bom Retiro? As opções são:
+<table>
+  <tr>
+    <th>Firstname</th>
+    <th>Lastname</th>
+    <th>Age</th>
+  </tr>
+  <tr>
+    <td>Jill</td>
+    <td>Smith</td>
+    <td>50</td>
+  </tr>
+  <tr>
+    <td>Eve</td>
+    <td>Jackson</td>
+    <td>94</td>
+  </tr>
+</table>
+									bijuteria
+									blazer
+									blusa
+									body
+									bolsa
+									calca
+									camisa
+									cardigan
+									kimono
+									casaco
+									cinto
+									conjunto
+									cropped
 									jaqueta
 									macacao
 									macaquinho
