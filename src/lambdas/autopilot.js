@@ -18,7 +18,8 @@ const autopilot = async event => {
 			if (!collected_data) return responseOk(pickProducts)
 			if (collected_data.products.answers) {
 				const { productOne, productTwo, productThree } = collected_data.products.answers
-				if (productOne && productTwo && productThree) return responseOk(pickPrices)
+				if (productOne && productTwo && productThree)
+					return responseOk(pickPrices(productOne, productTwo, productThree))
 
 			}
 			if (collected_data.prices.answers) {
