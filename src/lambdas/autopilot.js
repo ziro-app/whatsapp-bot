@@ -2,7 +2,11 @@ const middy = require('@middy/core')
 const httpUrlencodeBodyParser = require('@middy/http-urlencode-body-parser')
 const httpErrorHandler = require('@middy/http-error-handler')
 const createError = require('http-errors')
-const { productTypes, pickSecondProduct} = require('../utils/messages')
+const {
+	pickFirstProduct,
+	pickSecondProduct,
+	pickThirdProduct
+} = require('../utils/messages')
 
 const autopilot = async event => {
 	try {
@@ -11,21 +15,10 @@ const autopilot = async event => {
 			console.log('memory',memory)
 			const { collected_data } = memory.twilio
 			console.log('collected_data',collected_data)
-			if (!collected_data) {
-				return {
-					headers: { 'Content-Type': 'application/json' },
-					statusCode: 200,
-					body: JSON.stringify(productTypes, null, 4)
-				}
-			}
-			if (collected_data.product_types.answers) {
-				console.log('collected_data.answers',collected_data.product_types.answers)
-				return {
-					headers: { 'Content-Type': 'application/json' },
-					statusCode: 200,
-					body: JSON.stringify(pickSecondProduct, null, 4)
-				}
-			}
+			if (!collected_data) return responseOk(pickFirstProduct)
+			console.log('collected_data.answers',collected_data.product_types.answers)
+			if (collected_data.product_types.answers.productOne) return responseOk(pickSecondProduct)
+			if (collected_data.product_types.answers.productTwo) return responseOk(pickThirdProduct)
 		}
 		return {
 			headers: { 'Content-Type': 'application/json' },
