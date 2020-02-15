@@ -13,47 +13,21 @@ casaco\t\t\t\t\tvestido curto
 cinto\t\t\t\t\tvestido longo
 conjunto\t\t\t\t\t`
 
-exports.pickFirstProduct = {
+exports.pickProducts = {
     "actions": [{
         "collect": {
-            "name": "product_types",
+            "name": "products",
             "questions": [
                 {
 		            "question": pickFirstProductQuestion,
                     "name": "productOne",
                     "type": "Lista"
-		        }
-            ],
-            "on_complete": {
-                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
-            }
-        }
-    }]
-}
-
-exports.pickSecondProduct = {
-    "actions": [{
-        "collect": {
-            "name": "product_types",
-            "questions": [
+		        },
                 {
 		            "question": "Agora, escolhe pra gente um segundo produto da lista",
                     "name": "productTwo",
                     "type": "Lista"
-		        }
-            ],
-            "on_complete": {
-                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
-            }
-        }
-    }]
-}
-
-exports.pickThirdProduct = {
-    "actions": [{
-        "collect": {
-            "name": "product_types",
-            "questions": [
+		        },
                 {
 		            "question": "Por fim, escolhe o terceiro e último produto da lista",
                     "name": "productThree",
@@ -64,5 +38,37 @@ exports.pickThirdProduct = {
                 "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
             }
         }
+    }]
+}
+
+exports.pickPrices = (productOne, productTwo, productThree) => ({
+    "actions": [{
+        "collect": {
+            "name": "prices",
+            "questions": [
+                {
+		            "question": `Certo! Seu primeiro produto foi: ${productOne}. Por qual preço você vende esse produto?`,
+                    "name": "priceOne",
+                    "type": "Lista"
+		        },{
+		            "question": `Ok! Seu segundo produto foi: ${productTwo}. Por qual preço você vende esse produto?`,
+                    "name": "priceTwo",
+                    "type": "Lista"
+		        },{
+		            "question": `Beleza! Pra terminar, seu terceiro produto foi: ${productThree}. Por qual preço você vende esse produto?`,
+                    "name": "priceThree",
+                    "type": "Lista"
+		        }
+            ],
+            "on_complete": {
+                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+            }
+        }
+    }]
+})
+
+exports.end = {
+    "actions": [{
+        "say": "Obrigado!"
     }]
 }
