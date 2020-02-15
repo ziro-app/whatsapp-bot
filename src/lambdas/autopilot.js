@@ -2,6 +2,7 @@ const middy = require('@middy/core')
 const httpUrlencodeBodyParser = require('@middy/http-urlencode-body-parser')
 const httpErrorHandler = require('@middy/http-error-handler')
 const createError = require('http-errors')
+const products = require('../utils/messages')
 
 const autopilot = async event => {
 	try {
@@ -15,20 +16,7 @@ const autopilot = async event => {
 			            "name": "product_types",
 			            "questions": [
 			                {
-					            "question": `Qual produto deseja comprar no Bom Retiro? As opções são:
-bijuteria \t\t jaqueta
-blazer \t\t kimono
-blusa \t\t macacao
-body \t\t macaquinho
-bolsa \t\t saia
-calca \t\t short
-camisa \t\t tshirt
-cardigan \t\t vestido curto
-casaco \t\t vestido longo
-cinto
-conjunto
-cropped
-					            `,
+					            "question": products,
 			                    "name": "product",
 			                    "type": "Lista"
 					        }
