@@ -1,11 +1,26 @@
 require('dotenv').config()
 const axios = require('axios')
 const config = require('./axiosConfig')
+const arrayObject = require('@ziro/array-object')
 
 const model = async () => {
 	try {
-		const { data } = await axios(config)
-		console.log(data)
+		const { data: { valueRanges } } = await axios(config)
+		const [baseArray, productsArray, priceTableArray] = valueRanges
+		const base = arrayObject(baseArray)
+		const products = arrayObject(productsArray)
+		const priceTable = arrayObject(priceTableArray)
+		const transformedBase = base.map(supplier => {
+			const { Fabricante, Instagram, Preco, Bot, ...styles } = supplier 
+			return {
+				nome: Fabricante,
+				insta: Instagram,
+				estilos: Object.values(styles),
+				preco: Preco
+			}
+		})
+		console.log(transformedBase)
+		
 	} catch (error) {
 		console.log(error)
 	} 
