@@ -38,7 +38,7 @@ const autopilot = async event => {
 									// vestido curto
 									// vestido longo
 					    //         `,
-					    		"question": 'Body=Here is my first line \n Here is my second line',
+					    		"question": 'Body=Here is my first line \n Here is my second line <br> third line %0a fourth line',
 			                    "name": "product",
 			                    "type": "Lista"
 					        }
