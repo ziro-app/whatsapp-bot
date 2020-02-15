@@ -23,8 +23,38 @@ const testTable = [
   { produto: 'vestidolongo', min: 60, baixo: 129, alto: 190 }
 ]
 
+test('Test invalid product', t => {
+	const result = priceNumberToText(testTable, 'xxxx', 50)
+	const expected = ''
+	t.is(result, expected)
+})
 test('Test return values 1', t => {
 	const result = priceNumberToText(testTable, 'blazer', 50)
 	const expected = 'Mínimo'
+	t.is(result, expected)
+})
+test('Test return values 2', t => {
+	const result = priceNumberToText(testTable, 'blazer', 51)
+	const expected = 'Baixo'
+	t.is(result, expected)
+})
+test('Test return values 3', t => {
+	const result = priceNumberToText(testTable, 'blazer', 89)
+	const expected = 'Baixo'
+	t.is(result, expected)
+})
+test('Test return values 4', t => {
+	const result = priceNumberToText(testTable, 'blazer', 90)
+	const expected = 'Médio'
+	t.is(result, expected)
+})
+test('Test return values 5', t => {
+	const result = priceNumberToText(testTable, 'blazer', 159)
+	const expected = 'Médio'
+	t.is(result, expected)
+})
+test('Test return values 6', t => {
+	const result = priceNumberToText(testTable, 'blazer', 160)
+	const expected = 'Alto'
 	t.is(result, expected)
 })
