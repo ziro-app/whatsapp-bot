@@ -89,7 +89,7 @@ exports.pickStyle = {
                 {
 		            "question": pickStyleQuestion,
                     "name": "style",
-                    "type": "Lista"
+                    "type": "Estilos"
 		        }
             ],
             "on_complete": {
