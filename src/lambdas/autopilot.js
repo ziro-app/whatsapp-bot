@@ -17,20 +17,14 @@ const autopilot = async event => {
 			const { collected_data } = memory.twilio
 			console.log('collected_data',collected_data)
 			if (!collected_data) return responseOk(pickFirstProduct)
-			if (collected_data.product_types.answers.productOne) {
-				console.log('collected_data.answers',collected_data.product_types.answers)
-				return responseOk(pickSecondProduct)
-			}
-			if (collected_data.product_types.answers.productTwo) {
-				console.log('collected_data.answers',collected_data.product_types.answers)
-				return responseOk(pickThirdProduct)
+			if (collected_data.product_types.answers) {
+				const { productThree, productTwo, productOne } = collected_data.product_types.answers
+				if (productThree) return responseOk('Obrigado')
+				if (productTwo) return responseOk(pickThirdProduct)
+				if (productOne) return responseOk(pickSecondProduct)
 			}
 		}
-		return {
-			headers: { 'Content-Type': 'application/json' },
-			statusCode: 200,
-			body: JSON.stringify('ok', null, 4)
-		}
+		throw createError(404, 'Invalid Twilio Request')
 	} catch (error) { throw error }
 }
 
