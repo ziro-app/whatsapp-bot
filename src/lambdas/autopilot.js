@@ -8,6 +8,7 @@ const autopilot = async event => {
 		console.log(event)
 		if (event.body.Memory) {
 			const memory = JSON.parse(event.body.Memory)
+			console.log(memory)
 			const actions = {
 			    "actions": [{
 			        "collect": {
@@ -48,17 +49,22 @@ const autopilot = async event => {
 			        }
 			    }]
 			}
+			return {
+				headers: { 'Content-Type': 'application/json' },
+				statusCode: 200,
+				body: JSON.stringify(actions, null, 4)
+			}
 		}
 		return {
 			headers: { 'Content-Type': 'application/json' },
 			statusCode: 200,
-			body: JSON.stringify(actions, null, 4)
+			body: JSON.stringify('ok', null, 4)
 		}
 	} catch (error) { throw error }
 }
 
 const handler = middy(autopilot)
-	// .use(httpUrlencodeBodyParser())
+	.use(httpUrlencodeBodyParser())
 	.use(httpErrorHandler())
 
 module.exports = { handler }
