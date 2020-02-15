@@ -16,9 +16,9 @@ const autopilot = async event => {
 			const { collected_data } = memory.twilio
 			console.log('collected_data',collected_data)
 			if (!collected_data) return responseOk(pickProducts)
-			if (collected_data.products === 'complete')
+			if (collected_data.products.status === 'complete')
 				return responseOk(pickPrices(collected_data.products.answers))
-			if (collected_data.prices === 'complete') {
+			if (collected_data.prices.status === 'complete') {
 				return responseOk(end)
 			}
 		}
