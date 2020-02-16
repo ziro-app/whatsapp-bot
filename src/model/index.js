@@ -6,7 +6,7 @@ const dataTransformations = require('./dataTransformations')
 const priceNumberToText = require('./priceNumberToText')
 const findSuppliers = require('./findSuppliers')
 
-const model = async () => {
+const model = async (product, price, style) => {
 	try {
 		const { data: { valueRanges } } = await axios(config)
 		const [baseArray, productsArray, priceTableArray] = valueRanges
@@ -15,11 +15,9 @@ const model = async () => {
 			arrayObject(productsArray),
 			arrayObject(priceTableArray)
 		)
-		console.log(priceTable)
-		const priceRange = priceNumberToText(priceTable, 'cinto', 30)
-		console.log(priceRange)
-		// const targetSuppliers = findSuppliers('calca', 'Médio', 'Casual', base)
-		// console.log(targetSuppliers)
+		const priceRange = priceNumberToText(priceTable, product, price)
+		const targetSuppliers = findSuppliers(base, product, priceRange, style)
+		console.log(targetSuppliers)
 		// const targetNamesAndInstas = targetSuppliers.map(supplier => ({
 		// 	nome: supplier.nome,
 		// 	insta: supplier.insta
@@ -33,4 +31,8 @@ const model = async () => {
 	} 
 }
 
-model()
+const product = 'calca'
+const price = 41
+const style = 'Sexy'
+
+model(product, price, style)
