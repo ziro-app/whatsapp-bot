@@ -105,6 +105,7 @@ const displaySuppliers = selection => {
     const titleOne = responseOne.toUpperCase()
     const titleTwo = responseTwo.toUpperCase()
     const titleThree = responseThree.toUpperCase()
+    const selectionOneEmpty = selectionOne.length === 0 ? 'Nenhuma marca encontrada nesse preço' : ''
     const [selectionOneBrandOne, selectionOneBrandTwo, selectionOneBrandThree] = selectionOne
     const selectionBrandOneNameOne = selectionOneBrandOne ? selectionOneBrandOne.nome : ''
     const selectionBrandOneNameTwo = selectionOneBrandTwo ? selectionOneBrandTwo.nome : ''
@@ -128,7 +129,7 @@ const displaySuppliers = selection => {
     const selectionBrandThreeInstaThree = selectionThreeBrandThree ? `https://instagram.com/${selectionThreeBrandThree.insta}` : ''
     return `
 *${titleOne}*
-${selectionBrandOneNameOne}
+${selectionOneEmpty || selectionBrandOneNameOne}
 ${selectionBrandOneInstaOne}
 ${selectionBrandOneNameTwo}
 ${selectionBrandOneInstaTwo}
