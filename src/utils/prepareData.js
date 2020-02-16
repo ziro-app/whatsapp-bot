@@ -1,8 +1,16 @@
 const prepareData = (productAnswers, priceAnswers, styleAnswer) => {
 	const { productOne, productTwo, productThree } = productAnswers
-	const products = [productOne.answer, productTwo.answer, productThree.answer]
+	const products = [
+		productOne.answer.toLowerCase(),
+		productTwo.answer.toLowerCase(),
+		productThree.answer.toLowerCase()
+	]
 	const { priceOne, priceTwo, priceThree } = priceAnswers
-	const prices = [priceOne.answer, priceTwo.answer, priceThree.answer]
+	const prices = [
+		priceOne.answer.toLowerCase(),
+		priceTwo.answer.toLowerCase(),
+		priceThree.answer.toLowerCase()
+	]
 	const style = styleAnswer.style.answer
 	return [products, prices, style]
 }

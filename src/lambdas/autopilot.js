@@ -18,7 +18,6 @@ const autopilot = async event => {
 		if (event.body.Memory) {
 			const memory = JSON.parse(event.body.Memory)
 			const { collected_data } = memory.twilio
-			console.log('collected_data',collected_data)
 			if (!collected_data) return responseOk(pickProducts)
 			if (collected_data.products.status === 'complete' && !collected_data.prices)
 				return responseOk(pickPrices(collected_data.products.answers))
@@ -44,7 +43,7 @@ const handler = middy(autopilot)
 	.use(httpUrlencodeBodyParser())
 	.use(httpErrorHandler())
 
-module.exports = { handler }
+// module.exports = { handler }
 // let event = {}
 // event.body = {}
 // event.body.Memory = JSON.stringify({
@@ -88,7 +87,7 @@ module.exports = { handler }
 // 				"answers": {
 // 					"productTwo": {
 // 						"confirm_attempts": 0,
-// 						"answer": "camisa",
+// 						"answer": "Camisa",
 // 						"filled": true,
 // 						"type": "Produtos",
 // 						"confirmed": false,
