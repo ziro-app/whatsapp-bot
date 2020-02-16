@@ -31,7 +31,8 @@ const autopilot = async event => {
 					collected_data.prices.answers,
 					collected_data.style.answers
 				)
-				return responseOk(acceptSelection(products, ...model(products, prices, style)))
+				const [selectionOne, selectionTwo, selectionThree] = await model(products, prices, style)
+				return responseOk(acceptSelection(products, selectionOne, selectionTwo, selectionThree))
 			}
 			return responseOk(end)
 		}
