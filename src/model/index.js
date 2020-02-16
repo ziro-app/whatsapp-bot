@@ -7,7 +7,7 @@ const priceNumberToText = require('./priceNumberToText')
 const findSuppliers = require('./findSuppliers')
 const pickThreeRandomSuppliers = require('./pickThreeRandomSuppliers')
 
-const model = async (product, price, style) => {
+const model = async (products, prices, style) => {
 	try {
 		const { data: { valueRanges } } = await axios(config)
 		const [baseArray, productsArray, priceTableArray] = valueRanges
@@ -16,16 +16,20 @@ const model = async (product, price, style) => {
 			arrayObject(productsArray),
 			arrayObject(priceTableArray)
 		)
-		const priceRange = priceNumberToText(priceTable, product, price)
-		const targetSuppliers = findSuppliers(base, product, priceRange, style)
-		const suppliersInsta = targetSuppliers.map(supplier => ({
-			nome: supplier.nome,
-			insta: supplier.insta
-		}))
-		return pickThreeRandomSuppliers(suppliersInsta)
+		const priceRanges = products.map((product, index) =>
+			priceNumberToText(priceTable, product, prices[index])
+		)
+		return products.map((product, index) => {
+			const suppliers = findSuppliers(base, product, priceRanges[index], style)
+			const onlyNameAndInsta = suppliers.map(supplier => ({
+				nome: supplier.nome,
+				insta: supplier.insta
+			}))
+			return pickThreeRandomSuppliers(onlyNameAndInsta)
+		})
 	} catch (error) {
 		console.log(error)
-	} 
+	}
 }
-const [product, price, style] = process.argv.slice(2)
-model(product, price, style).then(result => console.log(result))
+
+model(['calca','cinto','short'],[50,60,70],'casual').then(result => console.log(result))
