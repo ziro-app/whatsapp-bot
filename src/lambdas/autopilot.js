@@ -3,6 +3,8 @@ const httpUrlencodeBodyParser = require('@middy/http-urlencode-body-parser')
 const httpErrorHandler = require('@middy/http-error-handler')
 const createError = require('http-errors')
 const responseOk = require('../utils/response')
+const preparaData = require('../utils/preparaData')
+const model = require('../model/index')
 const {
 	pickProducts,
 	pickPrices,
@@ -24,7 +26,12 @@ const autopilot = async event => {
 				return responseOk(pickStyle)
 			}
 			if (collected_data.style.status === 'complete' && !collected_data.selection) {
-				return responseOk(acceptSelection('Absolutti, Amissima, Hush'))
+				const [products, prices, style] = prepareData(
+					collected_data.products.answers,
+					collected_data.prices.answers,
+					collected_data.style.answers
+				)
+				return responseOk(acceptSelection(products, ...model(products, prices, style)))
 			}
 			return responseOk(end)
 		}

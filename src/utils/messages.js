@@ -99,13 +99,37 @@ exports.pickStyle = {
     }]
 }
 
+displaySuppliers = (responses, selectionOne, selectionTwo, selectionThree) => `
+*${response[0]}*
+${selectionOne[0].nome}
+${selectionOne[0].insta}
+${selectionOne[1].nome}
+${selectionOne[1].insta}
+${selectionOne[2].nome}
+${selectionOne[2].insta}
+*${response[1]}*
+${selectionTwo[0].nome}
+${selectionTwo[0].insta}
+${selectionTwo[1].nome}
+${selectionTwo[1].insta}
+${selectionTwo[2].nome}
+${selectionTwo[2].insta}
+*${response[2]}*
+${selectionThree[0].nome}
+${selectionThree[0].insta}
+${selectionThree[1].nome}
+${selectionThree[1].insta}
+${selectionThree[2].nome}
+${selectionThree[2].insta}
+`
+
 exports.acceptSelection = selection => ({
     "actions": [{
         "collect": {
             "name": "selection",
             "questions": [
                 {
-		            "question": `Pronto! Separamos para você as seguintes marcas:\n${selection}\nO que achou? Gostou da seleção?`,
+		            "question": `Pronto! Separamos para você as seguintes marcas:\n${displaySuppliers(selection)}\nO que achou? Gostou da seleção?`,
                     "name": "selection",
                     "type": "SimNao"
 		        }
