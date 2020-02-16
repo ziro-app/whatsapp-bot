@@ -10,11 +10,13 @@ const model = async () => {
 	try {
 		const { data: { valueRanges } } = await axios(config)
 		const [baseArray, productsArray, priceTableArray] = valueRanges
-		const base = dataTransformations(
+		const [base, priceTable] = dataTransformations(
 			arrayObject(baseArray),
 			arrayObject(productsArray),
+			arrayObject(priceTableArray)
 		)
-		const priceRange = priceNumberToText(arrayObject(priceTableArray), 'cinto', 30)
+		console.log(priceTable)
+		const priceRange = priceNumberToText(priceTable, 'cinto', 30)
 		console.log(priceRange)
 		// const targetSuppliers = findSuppliers('calca', 'Médio', 'Casual', base)
 		// console.log(targetSuppliers)

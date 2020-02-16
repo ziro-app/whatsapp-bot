@@ -9,7 +9,8 @@ const testTable = [
   { produto: 'bolsa', min: 30, baixo: 79, alto: 150 },
   { produto: 'calca', min: 40, baixo: 89, alto: 130 },
   { produto: 'camisa', min: 40, baixo: 79, alto: 120 },
-  { produto: 'cardigankimono', min: 40, baixo: 89, alto: 110 },
+  { produto: 'cardigan', min: 40, baixo: 89, alto: 110 },
+  { produto: 'kimono', min: 40, baixo: 89, alto: 110 },
   { produto: 'casaco', min: 50, baixo: 89, alto: 140 },
   { produto: 'cinto', min: 20, baixo: 49, alto: 90 },
   { produto: 'conjunto', min: 70, baixo: 109, alto: 160 },
@@ -17,10 +18,11 @@ const testTable = [
   { produto: 'jaqueta', min: 50, baixo: 89, alto: 150 },
   { produto: 'macacao', min: 60, baixo: 89, alto: 140 },
   { produto: 'macaquinho', min: 50, baixo: 79, alto: 130 },
-  { produto: 'shortsaia', min: 40, baixo: 79, alto: 110 },
+  { produto: 'short', min: 40, baixo: 79, alto: 110 },
+  { produto: 'saia', min: 40, baixo: 79, alto: 110 },
   { produto: 'tshirt', min: 30, baixo: 59, alto: 90 },
-  { produto: 'vestidocurto', min: 40, baixo: 89, alto: 150 },
-  { produto: 'vestidolongo', min: 60, baixo: 129, alto: 190 }
+  { produto: 'vestido curto', min: 40, baixo: 89, alto: 150 },
+  { produto: 'vestido longo', min: 60, baixo: 129, alto: 190 }
 ]
 
 test('Test invalid product', t => {
@@ -55,6 +57,16 @@ test('Test return values 5', t => {
 })
 test('Test return values 6', t => {
 	const result = priceNumberToText(testTable, 'blazer', 160)
+	const expected = 'Alto'
+	t.is(result, expected)
+})
+test('Test return values 7', t => {
+	const result = priceNumberToText(testTable, 'kimono', 160)
+	const expected = 'Alto'
+	t.is(result, expected)
+})
+test('Test return values 8', t => {
+	const result = priceNumberToText(testTable, 'saia', 160)
 	const expected = 'Alto'
 	t.is(result, expected)
 })

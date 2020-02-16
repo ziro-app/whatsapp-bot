@@ -1,6 +1,6 @@
 const splitProducts = require('./splitProducts')
 
-const dataTransformations = (base, products) => {
+const dataTransformations = (base, products, priceTable) => {
 	const transformedBase = base.map(supplier => {
 		const { Fabricante, Instagram, Preco, Bot, ...styles } = supplier 
 		return {
@@ -25,11 +25,20 @@ const dataTransformations = (base, products) => {
 			produtos: productArrayListSplitted
 		}
 	})
-	return transformedBase.map(supplier => {
+	const fullbase = transformedBase.map(supplier => {
 		const match = transformedProducts.find(product => product.nome === supplier.nome)
 		const { nome, produtos } = match
 		return { ...supplier, produtos }
 	})
+	const transformedPriceTable = priceTable.map(range => {
+		const { produto, ...ranges } = range
+		if (produto.includes('/')) {
+			const [productOne, productTwo] = splitProducts(produto)
+			return [{ produto: productOne, ...ranges }, { produto: productTwo, ...ranges }]
+		}
+		return range
+	}).flat()
+	return [fullbase, transformedPriceTable]
 }
 
 module.exports = dataTransformations
