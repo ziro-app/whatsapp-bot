@@ -34,7 +34,7 @@ const autopilot = async event => {
 				console.log(selectionOne)
 				console.log(selectionTwo)
 				console.log(selectionThree)
-				console.log(responseOk(acceptSelection([products, selectionOne, selectionTwo, selectionThree])))
+				return responseOk(acceptSelection([products, selectionOne, selectionTwo, selectionThree]))
 			}
 			return responseOk(end)
 		}
