@@ -109,46 +109,45 @@ const displaySuppliers = selection => {
     const selectionBrandOneNameOne = selectionOneBrandOne ? selectionOneBrandOne.nome : ''
     const selectionBrandOneNameTwo = selectionOneBrandTwo ? selectionOneBrandTwo.nome : ''
     const selectionBrandOneNameThree = selectionOneBrandThree ? selectionOneBrandThree.nome : ''
-    const selectionBrandOneInstaOne = selectionOneBrandOne ? selectionOneBrandOne.insta : ''
-    const selectionBrandOneInstaTwo = selectionOneBrandTwo ? selectionOneBrandTwo.insta : ''
-    const selectionBrandOneInstaThree = selectionOneBrandThree ? selectionOneBrandThree.insta : ''
+    const selectionBrandOneInstaOne = selectionOneBrandOne ? `https://instagram.com/${selectionOneBrandOne.insta}` : ''
+    const selectionBrandOneInstaTwo = selectionOneBrandTwo ? `https://instagram.com/${selectionOneBrandTwo.insta}` : ''
+    const selectionBrandOneInstaThree = selectionOneBrandThree ? `https://instagram.com/${selectionOneBrandThree.insta}` : ''
     const [selectionTwoBrandOne, selectionTwoBrandTwo, selectionTwoBrandThree] = selectionTwo
     const selectionBrandTwoNameOne = selectionTwoBrandOne ? selectionTwoBrandOne.nome : ''
     const selectionBrandTwoNameTwo = selectionTwoBrandTwo ? selectionTwoBrandTwo.nome : ''
     const selectionBrandTwoNameThree = selectionTwoBrandThree ? selectionTwoBrandThree.nome : ''
-    const selectionBrandTwoInstaOne = selectionTwoBrandOne ? selectionTwoBrandOne.insta : ''
-    const selectionBrandTwoInstaTwo = selectionTwoBrandTwo ? selectionTwoBrandTwo.insta : ''
-    const selectionBrandTwoInstaThree = selectionTwoBrandThree ? selectionTwoBrandThree.insta : ''
+    const selectionBrandTwoInstaOne = selectionTwoBrandOne ? `https://instagram.com/${selectionTwoBrandOne.insta}` : ''
+    const selectionBrandTwoInstaTwo = selectionTwoBrandTwo ? `https://instagram.com/${selectionTwoBrandTwo.insta}` : ''
+    const selectionBrandTwoInstaThree = selectionTwoBrandThree ? `https://instagram.com/${selectionTwoBrandThree.insta}` : ''
     const [selectionThreeBrandOne, selectionThreeBrandTwo, selectionThreeBrandThree] = selectionThree
     const selectionBrandThreeNameOne = selectionThreeBrandOne ? selectionThreeBrandOne.nome : ''
     const selectionBrandThreeNameTwo = selectionThreeBrandTwo ? selectionThreeBrandTwo.nome : ''
     const selectionBrandThreeNameThree = selectionThreeBrandThree ? selectionThreeBrandThree.nome : ''
-    const selectionBrandThreeInstaOne = selectionThreeBrandOne ? selectionThreeBrandOne.insta : ''
-    const selectionBrandThreeInstaTwo = selectionThreeBrandTwo ? selectionThreeBrandTwo.insta : ''
-    const selectionBrandThreeInstaThree = selectionThreeBrandThree ? selectionThreeBrandThree.insta : ''
-
+    const selectionBrandThreeInstaOne = selectionThreeBrandOne ? `https://instagram.com/${selectionThreeBrandOne.insta}` : ''
+    const selectionBrandThreeInstaTwo = selectionThreeBrandTwo ? `https://instagram.com/${selectionThreeBrandTwo.insta}` : ''
+    const selectionBrandThreeInstaThree = selectionThreeBrandThree ? `https://instagram.com/${selectionThreeBrandThree.insta}` : ''
     return `
 *${titleOne}*
 ${selectionBrandOneNameOne}
-https://instagram.com/${selectionBrandOneInstaOne}
+${selectionBrandOneInstaOne}
 ${selectionBrandOneNameTwo}
-https://instagram.com/${selectionBrandOneInstaTwo}
+${selectionBrandOneInstaTwo}
 ${selectionBrandOneNameThree}
-https://instagram.com/${selectionBrandOneInstaThree}
+${selectionBrandOneInstaThree}
 \n*${titleTwo}*
 ${selectionBrandTwoNameOne}
-https://instagram.com/${selectionBrandTwoInstaOne}
+${selectionBrandTwoInstaOne}
 ${selectionBrandTwoNameTwo}
-https://instagram.com/${selectionBrandTwoInstaTwo}
+${selectionBrandTwoInstaTwo}
 ${selectionBrandTwoNameThree}
-https://instagram.com/${selectionBrandTwoInstaThree}
+${selectionBrandTwoInstaThree}
 \n*${titleThree}*
 ${selectionBrandThreeNameOne}
-https://instagram.com/${selectionBrandThreeInstaOne}
+${selectionBrandThreeInstaOne}
 ${selectionBrandThreeNameTwo}
-https://instagram.com/${selectionBrandThreeInstaTwo}
+${selectionBrandThreeInstaTwo}
 ${selectionBrandThreeNameThree}
-https://instagram.com/${selectionBrandThreeInstaThree}
+${selectionBrandThreeInstaThree}
 `
 }
 
