@@ -6,7 +6,7 @@ const dataTransformations = (base, products, priceTable) => {
 		return {
 			nome: Fabricante,
 			insta: Instagram,
-			estilos: Object.values(styles),
+			estilos: Object.values(styles).map(style => style.toLowerCase()),
 			preco: Preco
 		}
 	})
@@ -25,6 +25,7 @@ const dataTransformations = (base, products, priceTable) => {
 			produtos: productArrayListSplitted
 		}
 	})
+	if (transformedBase.length !== transformedProducts.length) throw 'Tables must have same size'
 	const fullbase = transformedBase.map(supplier => {
 		const match = transformedProducts.find(product => product.nome === supplier.nome)
 		const { nome, produtos } = match

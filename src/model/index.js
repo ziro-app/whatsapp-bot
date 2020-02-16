@@ -17,23 +17,13 @@ const model = async (product, price, style) => {
 		)
 		const priceRange = priceNumberToText(priceTable, product, price)
 		const targetSuppliers = findSuppliers(base, product, priceRange, style)
-		console.log(priceRange)
-		console.log(targetSuppliers)
-		// const targetNamesAndInstas = targetSuppliers.map(supplier => ({
-		// 	nome: supplier.nome,
-		// 	insta: supplier.insta
-		// }))
-		// console.log(targetNamesAndInstas)
-		// console.log(fullBase.length)
-		// console.log(transformedBase.length)
-		// console.log(transformedProducts.length)
+		return targetSuppliers.map(supplier => ({
+			nome: supplier.nome,
+			insta: supplier.insta
+		}))
 	} catch (error) {
 		console.log(error)
 	} 
 }
-
-const product = 'calca'
-const price = 40
-const style = 'Sexy'
-
-model(product, price, style)
+const [product, price, style] = process.argv.slice(2)
+model(product, price, style).then(result => console.log(result))
