@@ -42,103 +42,103 @@ const autopilot = async event => {
 	} catch (error) { throw error }
 }
 
-// const handler = middy(autopilot)
-// 	.use(httpUrlencodeBodyParser())
-// 	.use(httpErrorHandler())
+const handler = middy(autopilot)
+	.use(httpUrlencodeBodyParser())
+	.use(httpErrorHandler())
 
-// module.exports = { handler }
+module.exports = { handler }
 
-let event = {}
-event.body = {}
-event.body.Memory = JSON.stringify({
-	"twilio": {
-		"collected_data": {
-			"prices": {
-				"answers": {
-					"priceOne": {
-						"confirm_attempts": 0,
-						"answer": "10",
-						"filled": true,
-						"type": "Twilio.NUMBER",
-						"confirmed": false,
-						"validate_attempts": 1,
-						"attempts": 1
-					},
-					"priceTwo": {
-						"confirm_attempts": 0,
-						"answer": "80",
-						"filled": true,
-						"type": "Twilio.NUMBER",
-						"confirmed": false,
-						"validate_attempts": 1,
-						"attempts": 1
-					},
-					"priceThree": {
-						"answer": "80",
-						"type": "Twilio.NUMBER",
-						"filled": true,
-						"attempts": 1,
-						"validate_attempts": 1,
-						"confirm_attempts": 0,
-						"confirmed": false
-					}
-				},
-				"date_completed": "2020-02-16T03:14:36Z",
-				"date_started": "2020-02-16T03:14:23Z",
-				"status": "complete"
-			},
-			"products": {
-				"answers": {
-					"productTwo": {
-						"confirm_attempts": 0,
-						"answer": "Calca",
-						"filled": true,
-						"type": "Produtos",
-						"confirmed": false,
-						"validate_attempts": 1,
-						"attempts": 1
-					},
-					"productThree": {
-						"confirm_attempts": 0,
-						"answer": "Camisa",
-						"filled": true,
-						"type": "Produtos",
-						"confirmed": false,
-						"validate_attempts": 1,
-						"attempts": 1
-					},
-					"productOne": {
-						"confirm_attempts": 0,
-						"answer": "Body",
-						"filled": true,
-						"type": "Produtos",
-						"confirmed": false,
-						"validate_attempts": 1,
-						"attempts": 1
-					}
-				},
-				"date_completed": "2020-02-16T03:14:22Z",
-				"date_started": "2020-02-16T03:14:06Z",
-				"status": "complete"
-			},
-			"style": {
-				"answers": {
-					"style": {
-						"confirm_attempts": 0,
-						"answer": "Social",
-						"filled": true,
-						"type": "Estilos",
-						"confirmed": false,
-						"validate_attempts": 1,
-						"attempts": 1
-					}
-				},
-				"date_completed": "2020-02-16T03:14:22Z",
-				"date_started": "2020-02-16T03:14:06Z",
-				"status": "complete"
-			}
-		}
-	}
-})
+// let event = {}
+// event.body = {}
+// event.body.Memory = JSON.stringify({
+// 	"twilio": {
+// 		"collected_data": {
+// 			"prices": {
+// 				"answers": {
+// 					"priceOne": {
+// 						"confirm_attempts": 0,
+// 						"answer": "10",
+// 						"filled": true,
+// 						"type": "Twilio.NUMBER",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"priceTwo": {
+// 						"confirm_attempts": 0,
+// 						"answer": "80",
+// 						"filled": true,
+// 						"type": "Twilio.NUMBER",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"priceThree": {
+// 						"answer": "80",
+// 						"type": "Twilio.NUMBER",
+// 						"filled": true,
+// 						"attempts": 1,
+// 						"validate_attempts": 1,
+// 						"confirm_attempts": 0,
+// 						"confirmed": false
+// 					}
+// 				},
+// 				"date_completed": "2020-02-16T03:14:36Z",
+// 				"date_started": "2020-02-16T03:14:23Z",
+// 				"status": "complete"
+// 			},
+// 			"products": {
+// 				"answers": {
+// 					"productTwo": {
+// 						"confirm_attempts": 0,
+// 						"answer": "Calca",
+// 						"filled": true,
+// 						"type": "Produtos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"productThree": {
+// 						"confirm_attempts": 0,
+// 						"answer": "Camisa",
+// 						"filled": true,
+// 						"type": "Produtos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"productOne": {
+// 						"confirm_attempts": 0,
+// 						"answer": "Body",
+// 						"filled": true,
+// 						"type": "Produtos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					}
+// 				},
+// 				"date_completed": "2020-02-16T03:14:22Z",
+// 				"date_started": "2020-02-16T03:14:06Z",
+// 				"status": "complete"
+// 			},
+// 			"style": {
+// 				"answers": {
+// 					"style": {
+// 						"confirm_attempts": 0,
+// 						"answer": "Social",
+// 						"filled": true,
+// 						"type": "Estilos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					}
+// 				},
+// 				"date_completed": "2020-02-16T03:14:22Z",
+// 				"date_started": "2020-02-16T03:14:06Z",
+// 				"status": "complete"
+// 			}
+// 		}
+// 	}
+// })
 
-autopilot(event)
+// autopilot(event)
