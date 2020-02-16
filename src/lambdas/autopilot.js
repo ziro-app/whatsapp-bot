@@ -3,7 +3,7 @@ const httpUrlencodeBodyParser = require('@middy/http-urlencode-body-parser')
 const httpErrorHandler = require('@middy/http-error-handler')
 const createError = require('http-errors')
 const responseOk = require('../utils/response')
-const preparaData = require('../utils/preparaData')
+const prepareData = require('../utils/prepareData')
 const model = require('../model/index')
 const {
 	pickProducts,
