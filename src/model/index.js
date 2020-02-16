@@ -5,6 +5,7 @@ const arrayObject = require('@ziro/array-object')
 const dataTransformations = require('./dataTransformations')
 const priceNumberToText = require('./priceNumberToText')
 const findSuppliers = require('./findSuppliers')
+const pickThreeRandomSuppliers = require('./pickThreeRandomSuppliers')
 
 const model = async (product, price, style) => {
 	try {
@@ -17,10 +18,11 @@ const model = async (product, price, style) => {
 		)
 		const priceRange = priceNumberToText(priceTable, product, price)
 		const targetSuppliers = findSuppliers(base, product, priceRange, style)
-		return targetSuppliers.map(supplier => ({
+		const suppliersInsta = targetSuppliers.map(supplier => ({
 			nome: supplier.nome,
 			insta: supplier.insta
 		}))
+		return pickThreeRandomSuppliers(suppliersInsta)
 	} catch (error) {
 		console.log(error)
 	} 
