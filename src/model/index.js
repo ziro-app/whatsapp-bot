@@ -32,4 +32,5 @@ const model = async (products, prices, style) => {
 	}
 }
 
-model(['calca','cinto','short'],[50,60,70],'casual').then(result => console.log(result))
+module.exports = model
+// model(['calca','cinto','short'],[50,60,70],'casual').then(result => console.log(result))
