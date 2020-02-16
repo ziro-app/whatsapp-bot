@@ -99,7 +99,9 @@ exports.pickStyle = {
     }]
 }
 
-displaySuppliers = (responses, selectionOne, selectionTwo, selectionThree) => `
+displaySuppliers = selection => {
+    const [responses, selectionOne, selectionTwo, selectionThree] = selection
+    return `
 *${response[0]}*
 ${selectionOne[0].nome}
 ${selectionOne[0].insta}
@@ -122,6 +124,7 @@ ${selectionThree[1].insta}
 ${selectionThree[2].nome}
 ${selectionThree[2].insta}
 `
+}
 
 exports.acceptSelection = selection => ({
     "actions": [{
