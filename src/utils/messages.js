@@ -102,27 +102,27 @@ exports.pickStyle = {
 const displaySuppliers = selection => {
     const [responses, selectionOne, selectionTwo, selectionThree] = selection
     return `
-*${responses[0]}*
+*${responses[0].toUpperCase()}*
 ${selectionOne[0].nome}
-${selectionOne[0].insta}
+https://instagram.com/${selectionOne[0].insta}
 ${selectionOne[1].nome}
-${selectionOne[1].insta}
+https://instagram.com/${selectionOne[1].insta}
 ${selectionOne[2].nome}
-${selectionOne[2].insta}
-*${responses[1]}*
+https://instagram.com/${selectionOne[2].insta}
+\n*${responses[1].toUpperCase()}*
 ${selectionTwo[0].nome}
-${selectionTwo[0].insta}
+https://instagram.com/${selectionTwo[0].insta}
 ${selectionTwo[1].nome}
-${selectionTwo[1].insta}
+https://instagram.com/${selectionTwo[1].insta}
 ${selectionTwo[2].nome}
-${selectionTwo[2].insta}
-*${responses[2]}*
+https://instagram.com/${selectionTwo[2].insta}
+\n*${responses[2].toUpperCase()}*
 ${selectionThree[0].nome}
-${selectionThree[0].insta}
+https://instagram.com/${selectionThree[0].insta}
 ${selectionThree[1].nome}
-${selectionThree[1].insta}
+https://instagram.com/${selectionThree[1].insta}
 ${selectionThree[2].nome}
-${selectionThree[2].insta}
+https://instagram.com/${selectionThree[2].insta}
 `
 }
 
