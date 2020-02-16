@@ -101,28 +101,54 @@ exports.pickStyle = {
 
 const displaySuppliers = selection => {
     const [responses, selectionOne, selectionTwo, selectionThree] = selection
+    const [responseOne, responseTwo, responseThree] = responses
+    const titleOne = responseOne.toUpperCase()
+    const titleTwo = responseTwo.toUpperCase()
+    const titleThree = responseThree.toUpperCase()
+    const [selectionOneBrandOne, selectionOneBrandTwo, selectionOneBrandThree] = selectionOne
+    const selectionBrandOneNameOne = selectionOneBrandOne ? selectionOneBrandOne.nome : ''
+    const selectionBrandOneNameTwo = selectionOneBrandTwo ? selectionOneBrandTwo.nome : ''
+    const selectionBrandOneNameThree = selectionOneBrandThree ? selectionOneBrandThree.nome : ''
+    const selectionBrandOneInstaOne = selectionOneBrandOne ? selectionOneBrandOne.insta : ''
+    const selectionBrandOneInstaTwo = selectionOneBrandTwo ? selectionOneBrandTwo.insta : ''
+    const selectionBrandOneInstaThree = selectionOneBrandThree ? selectionOneBrandThree.insta : ''
+    const [selectionTwoBrandOne, selectionTwoBrandTwo, selectionTwoBrandThree] = selectionTwo
+    const selectionBrandTwoNameOne = selectionTwoBrandOne ? selectionTwoBrandOne.nome : ''
+    const selectionBrandTwoNameTwo = selectionTwoBrandTwo ? selectionTwoBrandTwo.nome : ''
+    const selectionBrandTwoNameThree = selectionTwoBrandThree ? selectionTwoBrandThree.nome : ''
+    const selectionBrandTwoInstaOne = selectionTwoBrandOne ? selectionTwoBrandOne.insta : ''
+    const selectionBrandTwoInstaTwo = selectionTwoBrandTwo ? selectionTwoBrandTwo.insta : ''
+    const selectionBrandTwoInstaThree = selectionTwoBrandThree ? selectionTwoBrandThree.insta : ''
+    const [selectionThreeBrandOne, selectionThreeBrandTwo, selectionThreeBrandThree] = selectionThree
+    const selectionBrandThreeNameOne = selectionThreeBrandOne ? selectionThreeBrandOne.nome : ''
+    const selectionBrandThreeNameTwo = selectionThreeBrandTwo ? selectionThreeBrandTwo.nome : ''
+    const selectionBrandThreeNameThree = selectionThreeBrandThree ? selectionThreeBrandThree.nome : ''
+    const selectionBrandThreeInstaOne = selectionThreeBrandOne ? selectionThreeBrandOne.insta : ''
+    const selectionBrandThreeInstaTwo = selectionThreeBrandTwo ? selectionThreeBrandTwo.insta : ''
+    const selectionBrandThreeInstaThree = selectionThreeBrandThree ? selectionThreeBrandThree.insta : ''
+
     return `
-*${responses[0].toUpperCase()}*
-${selectionOne[0].nome}
-https://instagram.com/${selectionOne[0].insta}
-${selectionOne[1].nome}
-https://instagram.com/${selectionOne[1].insta}
-${selectionOne[2].nome}
-https://instagram.com/${selectionOne[2].insta}
-\n*${responses[1].toUpperCase()}*
-${selectionTwo[0].nome}
-https://instagram.com/${selectionTwo[0].insta}
-${selectionTwo[1].nome}
-https://instagram.com/${selectionTwo[1].insta}
-${selectionTwo[2].nome}
-https://instagram.com/${selectionTwo[2].insta}
-\n*${responses[2].toUpperCase()}*
-${selectionThree[0].nome}
-https://instagram.com/${selectionThree[0].insta}
-${selectionThree[1].nome}
-https://instagram.com/${selectionThree[1].insta}
-${selectionThree[2].nome}
-https://instagram.com/${selectionThree[2].insta}
+*${titleOne}*
+${selectionBrandOneNameOne}
+https://instagram.com/${selectionBrandOneInstaOne}
+${selectionBrandOneNameTwo}
+https://instagram.com/${selectionBrandOneInstaTwo}
+${selectionBrandOneNameThree}
+https://instagram.com/${selectionBrandOneInstaThree}
+\n*${titleTwo}*
+${selectionBrandTwoNameOne}
+https://instagram.com/${selectionBrandTwoInstaOne}
+${selectionBrandTwoNameTwo}
+https://instagram.com/${selectionBrandTwoInstaTwo}
+${selectionBrandTwoNameThree}
+https://instagram.com/${selectionBrandTwoInstaThree}
+\n*${titleThree}*
+${selectionBrandThreeNameOne}
+https://instagram.com/${selectionBrandThreeInstaOne}
+${selectionBrandThreeNameTwo}
+https://instagram.com/${selectionBrandThreeInstaTwo}
+${selectionBrandThreeNameThree}
+https://instagram.com/${selectionBrandThreeInstaThree}
 `
 }
 

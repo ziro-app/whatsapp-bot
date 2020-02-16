@@ -91,7 +91,7 @@ module.exports = { handler }
 // 				"answers": {
 // 					"productTwo": {
 // 						"confirm_attempts": 0,
-// 						"answer": "Camisa",
+// 						"answer": "Calca",
 // 						"filled": true,
 // 						"type": "Produtos",
 // 						"confirmed": false,
@@ -100,7 +100,7 @@ module.exports = { handler }
 // 					},
 // 					"productThree": {
 // 						"confirm_attempts": 0,
-// 						"answer": "Saia",
+// 						"answer": "Camisa",
 // 						"filled": true,
 // 						"type": "Produtos",
 // 						"confirmed": false,
@@ -109,7 +109,7 @@ module.exports = { handler }
 // 					},
 // 					"productOne": {
 // 						"confirm_attempts": 0,
-// 						"answer": "Blusa",
+// 						"answer": "Body",
 // 						"filled": true,
 // 						"type": "Produtos",
 // 						"confirmed": false,
@@ -125,7 +125,7 @@ module.exports = { handler }
 // 				"answers": {
 // 					"style": {
 // 						"confirm_attempts": 0,
-// 						"answer": "Casual",
+// 						"answer": "Social",
 // 						"filled": true,
 // 						"type": "Estilos",
 // 						"confirmed": false,
