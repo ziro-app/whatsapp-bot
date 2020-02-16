@@ -17,6 +17,7 @@ const model = async (product, price, style) => {
 		)
 		const priceRange = priceNumberToText(priceTable, product, price)
 		const targetSuppliers = findSuppliers(base, product, priceRange, style)
+		console.log(priceRange)
 		console.log(targetSuppliers)
 		// const targetNamesAndInstas = targetSuppliers.map(supplier => ({
 		// 	nome: supplier.nome,
@@ -32,7 +33,7 @@ const model = async (product, price, style) => {
 }
 
 const product = 'calca'
-const price = 41
+const price = 40
 const style = 'Sexy'
 
 model(product, price, style)
