@@ -1,3 +1,5 @@
+const splitProducts = require('./splitProducts')
+
 const dataTransformations = (base, products) => {
 	const transformedBase = base.map(supplier => {
 		const { Fabricante, Instagram, Preco, Bot, ...styles } = supplier 
@@ -17,9 +19,10 @@ const dataTransformations = (base, products) => {
 				return productName
 			return null
 		}).filter(productName => !!productName)
+		const productArrayListSplitted = productArrayList.map(product => splitProducts(product)).flat()
 		return {
 			nome: fabricante,
-			produtos: productArrayList
+			produtos: productArrayListSplitted
 		}
 	})
 	return transformedBase.map(supplier => {
