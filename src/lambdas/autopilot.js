@@ -43,7 +43,8 @@ const handler = middy(autopilot)
 	.use(httpUrlencodeBodyParser())
 	.use(httpErrorHandler())
 
-// module.exports = { handler }
+module.exports = { handler }
+
 // let event = {}
 // event.body = {}
 // event.body.Memory = JSON.stringify({
