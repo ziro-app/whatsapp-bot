@@ -1,5 +1,5 @@
 const pickThreeRandomSuppliers = suppliers => {
-	if (suppliers.length === 3) return suppliers
+	if (suppliers.length <= 3) return suppliers
 	const { floor, random } = Math
 	const maxIndex = suppliers.length - 1
 	const randomIndexOne = floor(random() * (maxIndex) + 1)

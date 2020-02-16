@@ -25,6 +25,12 @@ const testTable = [
   { produto: 'vestido longo', min: 60, baixo: 129, alto: 190 }
 ]
 
+test(`Test when table is empty`, t => {
+  const result = pickThreeRandomSuppliers([]).length
+  const expected = 0
+  t.is(result, expected)
+})
+
 for (let i = 0; i < 10000; i++) {
 	test(`Test length - ${i}`, t => {
 		const result = pickThreeRandomSuppliers(testTable).length
