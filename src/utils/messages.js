@@ -106,6 +106,8 @@ const displaySuppliers = selection => {
     const titleTwo = responseTwo.toUpperCase()
     const titleThree = responseThree.toUpperCase()
     const selectionOneEmpty = selectionOne.length === 0 ? 'Nenhuma marca encontrada nesse preço' : ''
+    const selectionTwoEmpty = selectionTwo.length === 0 ? 'Nenhuma marca encontrada nesse preço' : ''
+    const selectionThreeEmpty = selectionThree.length === 0 ? 'Nenhuma marca encontrada nesse preço' : ''
     const [selectionOneBrandOne, selectionOneBrandTwo, selectionOneBrandThree] = selectionOne
     const selectionBrandOneNameOne = selectionOneBrandOne ? selectionOneBrandOne.nome : ''
     const selectionBrandOneNameTwo = selectionOneBrandTwo ? selectionOneBrandTwo.nome : ''
@@ -127,28 +129,40 @@ const displaySuppliers = selection => {
     const selectionBrandThreeInstaOne = selectionThreeBrandOne ? `https://instagram.com/${selectionThreeBrandOne.insta}` : ''
     const selectionBrandThreeInstaTwo = selectionThreeBrandTwo ? `https://instagram.com/${selectionThreeBrandTwo.insta}` : ''
     const selectionBrandThreeInstaThree = selectionThreeBrandThree ? `https://instagram.com/${selectionThreeBrandThree.insta}` : ''
-    return `
-*${titleOne}*
-${selectionOneEmpty || selectionBrandOneNameOne}
+    const blockOne = selectionOneEmpty ? `${selectionOneEmpty}` :
+`
+${selectionBrandOneNameOne}
 ${selectionBrandOneInstaOne}
 ${selectionBrandOneNameTwo}
 ${selectionBrandOneInstaTwo}
 ${selectionBrandOneNameThree}
 ${selectionBrandOneInstaThree}
-\n*${titleTwo}*
+`
+    const blockTwo = selectionTwoEmpty ? `${selectionTwoEmpty}` :
+`
 ${selectionBrandTwoNameOne}
 ${selectionBrandTwoInstaOne}
 ${selectionBrandTwoNameTwo}
 ${selectionBrandTwoInstaTwo}
 ${selectionBrandTwoNameThree}
 ${selectionBrandTwoInstaThree}
-\n*${titleThree}*
+`    
+    const blockThree = selectionThreeEmpty ? `${selectionThreeEmpty}` :
+`
 ${selectionBrandThreeNameOne}
 ${selectionBrandThreeInstaOne}
 ${selectionBrandThreeNameTwo}
 ${selectionBrandThreeInstaTwo}
 ${selectionBrandThreeNameThree}
 ${selectionBrandThreeInstaThree}
+`
+    return `
+*${titleOne}*
+${blockOne}
+\n*${titleTwo}*
+${blockTwo}
+\n*${titleThree}*
+${blockThree}
 `
 }
 

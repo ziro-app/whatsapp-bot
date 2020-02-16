@@ -66,7 +66,7 @@ module.exports = { handler }
 // 					},
 // 					"priceTwo": {
 // 						"confirm_attempts": 0,
-// 						"answer": "80",
+// 						"answer": "10",
 // 						"filled": true,
 // 						"type": "Twilio.NUMBER",
 // 						"confirmed": false,
@@ -74,7 +74,7 @@ module.exports = { handler }
 // 						"attempts": 1
 // 					},
 // 					"priceThree": {
-// 						"answer": "80",
+// 						"answer": "10",
 // 						"type": "Twilio.NUMBER",
 // 						"filled": true,
 // 						"attempts": 1,
