@@ -45,3 +45,97 @@ const handler = middy(autopilot)
 	.use(httpErrorHandler())
 
 module.exports = { handler }
+// let event = {}
+// event.body = {}
+// event.body.Memory = JSON.stringify({
+// 	"twilio": {
+// 		"collected_data": {
+// 			"prices": {
+// 				"answers": {
+// 					"priceOne": {
+// 						"confirm_attempts": 0,
+// 						"answer": "60",
+// 						"filled": true,
+// 						"type": "Twilio.NUMBER",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"priceTwo": {
+// 						"confirm_attempts": 0,
+// 						"answer": "60",
+// 						"filled": true,
+// 						"type": "Twilio.NUMBER",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"priceThree": {
+// 						"answer": "60",
+// 						"type": "Twilio.NUMBER",
+// 						"filled": true,
+// 						"attempts": 1,
+// 						"validate_attempts": 1,
+// 						"confirm_attempts": 0,
+// 						"confirmed": false
+// 					}
+// 				},
+// 				"date_completed": "2020-02-16T03:14:36Z",
+// 				"date_started": "2020-02-16T03:14:23Z",
+// 				"status": "complete"
+// 			},
+// 			"products": {
+// 				"answers": {
+// 					"productTwo": {
+// 						"confirm_attempts": 0,
+// 						"answer": "camisa",
+// 						"filled": true,
+// 						"type": "Produtos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"productThree": {
+// 						"confirm_attempts": 0,
+// 						"answer": "cardigan",
+// 						"filled": true,
+// 						"type": "Produtos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					},
+// 					"productOne": {
+// 						"confirm_attempts": 0,
+// 						"answer": "short",
+// 						"filled": true,
+// 						"type": "Produtos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					}
+// 				},
+// 				"date_completed": "2020-02-16T03:14:22Z",
+// 				"date_started": "2020-02-16T03:14:06Z",
+// 				"status": "complete"
+// 			},
+// 			"style": {
+// 				"answers": {
+// 					"style": {
+// 						"confirm_attempts": 0,
+// 						"answer": "casual",
+// 						"filled": true,
+// 						"type": "Estilos",
+// 						"confirmed": false,
+// 						"validate_attempts": 1,
+// 						"attempts": 1
+// 					}
+// 				},
+// 				"date_completed": "2020-02-16T03:14:22Z",
+// 				"date_started": "2020-02-16T03:14:06Z",
+// 				"status": "complete"
+// 			}
+// 		}
+// 	}
+// })
+
+// autopilot(event)
