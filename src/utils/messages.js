@@ -25,17 +25,13 @@ const validProducts = [
 const pickFirstProductQuestion = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!\n
 Te recomendamos as melhores marcas de acordo com o que você está procurando!\n
 Conta pra gente: Qual produto deseja comprar no Bom Retiro? As opções são:\n
-bijuteria\t\t\t\t\tcropped
-blazer\t\t\t\t\tjaqueta
-blusa\t\t\t\t\tkimono
-body\t\t\t\t\tmacacao
-bolsa\t\t\t\t\tmacaquinho
-calca\t\t\t\t\tsaia
-camisa\t\t\t\t\tshort
-cardigan\t\t\t\t\ttshirt
-casaco\t\t\t\t\tvestido curto
-cinto\t\t\t\t\tvestido longo
-conjunto\t\t\t\t\t`
+bijuteria, blazer, blusa,
+body, bolsa, calca,
+camisa, cardigan, casaco,
+cinto, conjunto, cropped,
+jaqueta, kimono, macacao,
+macaquinho, saia, short,
+tshirt, vestido curto, vestido longo`
 
 exports.pickProducts = {
     "actions": [{
@@ -71,16 +67,8 @@ exports.pickProducts = {
                             "messages": [
                                 {
                                     "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
-                                },
-                                {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            ]
                         }
                     }
 		        },
@@ -96,16 +84,8 @@ exports.pickProducts = {
                             "messages": [
                                 {
                                     "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
-                                },
-                                {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            ]
                         }
                     }
 		        }
@@ -131,16 +111,8 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             "messages": [
                                 {
                                     "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
-                                },
-                                {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            ]
                         }
                     }
 		        },{
@@ -152,16 +124,8 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             "messages": [
                                 {
                                     "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
-                                },
-                                {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            ]
                         }
                     }
 		        },{
@@ -173,16 +137,8 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             "messages": [
                                 {
                                     "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
-                                },
-                                {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            ]
                         }
                     }
 		        }
@@ -237,16 +193,8 @@ exports.pickStyle = {
                             "messages": [
                                 {
                                     "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
-                                },
-                                {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            ]
                         }
                     }
 		        }
@@ -371,12 +319,7 @@ exports.acceptSelection = selection => ({
                                 {
                                     "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            ]
                         }
                     }
                 }
