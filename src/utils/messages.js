@@ -410,7 +410,7 @@ exports.register = {
                                 },
                                 {
                                     "say": "Ainda não entendi.  Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
-                                }
+                                },
                                 {
                                     "say": "Reiniciando..."
                                 }
