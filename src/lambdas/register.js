@@ -4,6 +4,7 @@ const httpErrorHandler = require('@middy/http-error-handler')
 const createError = require('http-errors')
 const axios = require('axios')
 const responseOk = require('../utils/response')
+const validateCnpj = require('../utils/validateCnpj')
 const { register, endRegister } = require('../utils/messages')
 
 const sheetConfig = {
@@ -44,11 +45,10 @@ const autopilot = async event => {
             console.log('cnpjIsValid',cnpjIsValid)
             if (cnpjIsValid) {
                 const { data: { status, result } } = await axios(cnpjConfig(cnpj))
-                console.log('status',status)
-                console.log('result',result)
-                return responseOk(endRegister(cnpj))
+                const message = validateCnpj(status, result)
+                return responseOk(endRegister(message))
             }
-            return responseOk(endRegister(cnpj))
+            return responseOk(endRegister('Seu Cnpj está mal formatado. Ele precisa ter 14 digitos, sem pontuação'))
         }
         throw createError(404, 'Invalid Twilio Request. Memory is empty')
     } catch (error) { throw error }

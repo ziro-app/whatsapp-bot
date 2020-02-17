@@ -430,9 +430,9 @@ exports.register = {
     }]  
 }
 
-exports.endRegister = cnpj => ({
+exports.endRegister = message => ({
     "actions": [{
-        "say": `Seu cnpj é: ${cnpj}`
+        "say": `${message}`
     }]
 })
 
