@@ -388,7 +388,6 @@ exports.acceptSelection = selection => ({
                         }
                     }
                 }
-		        }
             ],
             "on_complete": {
                 "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
