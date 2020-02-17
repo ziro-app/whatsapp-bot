@@ -7,7 +7,7 @@ const responseOk = require('../utils/response')
 const validateCnpj = require('../utils/validateCnpj')
 const { register, endRegister } = require('../utils/messages')
 
-const sheetConfig = {
+const sheetConfig = data => ({
     method: 'POST',
     url: process.env.SHEET_URL,
     headers: {
@@ -17,11 +17,17 @@ const sheetConfig = {
     },
     data: {
         apiResource: 'values',
-        apiMethod: 'batchGet',
+        apiMethod: 'append',
         spreadsheetId: process.env.SHEET_ID,
-        ranges: ['Base!A:G','Produtos!A:U', `'Faixa Preços'!A:D`]
+        range: 'Leads!A1',
+        resource: {
+            values: [
+                [...data]
+            ]
+        },
+        valueInputOption: 'raw'
     }
-}
+})
 
 const cnpjConfig = cnpj => ({
     method: 'POST',
@@ -39,13 +45,22 @@ const autopilot = async event => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
+            console.log(memory.twilio.collected_data)
             if (!memory.twilio.collected_data.register) return responseOk(register)
             const cnpj = event.body.CurrentInput
             const cnpjIsValid = !!Number(cnpj) && cnpj.toString().length === 14
-            console.log('cnpjIsValid',cnpjIsValid)
             if (cnpjIsValid) {
                 const { data: { status, result } } = await axios(cnpjConfig(cnpj))
                 const message = validateCnpj(status, result)
+                if (message.slice(0,2) === 'OK') {
+                    const { products, prices, style } = memory.twilio.collected_data
+                    const { productOne, productTwo, productThree } = products.answers
+                    const { priceOne, priceTwo, priceThree } = prices.answers
+                    await axios(sheetConfig([
+                        productOne.answer, productTwo.answer, productThree.answer,
+                        priceOne.answer, priceTwo.answer, priceThree.answer,
+                    ]))
+                }
                 return responseOk(endRegister(message))
             }
             return responseOk(endRegister('Seu Cnpj está mal formatado. Ele precisa ter 14 digitos, sem pontuação. Você pode tentar de novo, mas se preferir, pode mandar uma mensagem para esse número de Whatsapp +55 (11) 3334-0920 e nossa equipe vai te ajudar com seu cadastro!'))
