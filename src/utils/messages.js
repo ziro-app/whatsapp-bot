@@ -50,7 +50,10 @@ exports.pickProducts = {
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok? Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
                                 }
                             ]
                         },
