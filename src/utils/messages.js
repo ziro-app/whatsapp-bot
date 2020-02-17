@@ -379,7 +379,7 @@ exports.acceptSelection = selection => ({
                 }
             ],
             "on_complete": {
-                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+                "redirect": "https://whats.ziro.app/.netlify/functions/register"
             }
         }
     }]	
@@ -387,7 +387,7 @@ exports.acceptSelection = selection => ({
 
 const callToRegister = `
 Ok, lembrando que você pode refazer a busca sempre que quiser!\n
-Outra coisa, estamos oferecendo frete grátis para quem comprar conosco esse mês, afinal é Carnaval! 🥳\n
+Outra coisa, estamos oferecendo **FRETE GRÁTIS** para quem comprar conosco esse mês, afinal é Carnaval! 🥳\n
 Se quiser que a gente entre em contato para te ajudar nas suas compras, *manda aqui seu CNPJ*\n
 Te ajudamos não apenas na seleção de marcas, mas também na abertura de cadastro, na logística, no pagamento, enfim, no que precisar!\n
 E então? *manda seu cnpj* para a gente! Pode mandar os números apenas, sem pontuação
@@ -406,8 +406,11 @@ exports.register = {
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Manda só os *números*. Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                    "say": "Não entendi. Manda só os *números*, sem pontuação"
                                 },
+                                {
+                                    "say": "Ainda não entendi.  Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                }
                                 {
                                     "say": "Reiniciando..."
                                 }
@@ -415,13 +418,13 @@ exports.register = {
                         },
                         "max_attempts": {
                             "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
+                            "num_attempts": 3
                         }
                     }
                 }
             ],
             "on_complete": {
-                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+                "redirect": "https://whats.ziro.app/.netlify/functions/register"
             }
         }
     }]  
@@ -429,6 +432,6 @@ exports.register = {
 
 exports.end = {
     "actions": [{
-        "say": "Obrigado pelo seu tempo e por escolher a Ziro!"
+        "say": "Obrigado pelo seu tempo e por escolher a Ziro! Pode refazer a busca quantas vezes quiser!"
     }]
 }
