@@ -8,13 +8,12 @@ const autopilot = async event => {
 	try {
 		if (event.body.Memory) {
 			const action = {
-				"actions": [
-					{
-						"redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
-					}
-				]
+				"actions": [{
+					"redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+				}]
 			}
 			return responseOk(action)
+		}
 		throw createError(404, 'Invalid Twilio Request. Memory is empty')
 	} catch (error) { throw error }
 }
