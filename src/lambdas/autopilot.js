@@ -32,11 +32,9 @@ const autopilot = async event => {
 					collected_data.style.answers
 				)
 				const [selectionOne, selectionTwo, selectionThree] = await model(products, prices, style)
-				console.log(selectionOne)
-				console.log(selectionTwo)
-				console.log(selectionThree)
 				return responseOk(acceptSelection([products, selectionOne, selectionTwo, selectionThree]))
 			}
+			console.log(collected_data.selection.status)
 			if (collected_data.selection.status === 'complete') return responseOk(register)
 			return responseOk(end)
 		}
