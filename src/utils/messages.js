@@ -409,7 +409,7 @@ exports.register = {
                                     "say": "Não entendi. Manda só os *números*, sem pontuação"
                                 },
                                 {
-                                    "say": "Ainda não entendi.  Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                    "say": "Ainda não entendi. Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
                                 },
                                 {
                                     "say": "Reiniciando..."
@@ -429,6 +429,12 @@ exports.register = {
         }
     }]  
 }
+
+exports.endRegister = cnpj => ({
+    "actions": [{
+        "say": `Seu cnpj é: ${cnpj}`
+    }]
+})
 
 exports.end = {
     "actions": [{
