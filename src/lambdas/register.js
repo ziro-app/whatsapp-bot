@@ -56,10 +56,19 @@ const autopilot = async event => {
                     const { products, prices, style } = memory.twilio.collected_data
                     const { productOne, productTwo, productThree } = products.answers
                     const { priceOne, priceTwo, priceThree } = prices.answers
-                    await axios(sheetConfig([
+                    const styleAnswer = style.answers
+                    console.log(productOne)
+                    console.log(productTwo)
+                    console.log(productThree)
+                    console.log(priceOne)
+                    console.log(priceTwo)
+                    console.log(priceThree)
+                    console.log(styleAnswer)
+                    const { data } = await axios(sheetConfig([
                         productOne.answer, productTwo.answer, productThree.answer,
                         priceOne.answer, priceTwo.answer, priceThree.answer,
                     ]))
+                    console.log(data)
                 }
                 return responseOk(endRegister(message))
             }
