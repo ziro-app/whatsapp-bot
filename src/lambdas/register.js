@@ -18,7 +18,7 @@ const sheetConfig = data => ({
     data: {
         apiResource: 'values',
         apiMethod: 'append',
-        spreadsheetId: process.env.SHEET_ID,
+        spreadsheetId: process.env.SHEET_ID_LEADS,
         range: 'Leads!A1',
         resource: {
             values: [
