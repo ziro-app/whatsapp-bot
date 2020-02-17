@@ -41,13 +41,14 @@ const autopilot = async event => {
             if (!memory.twilio.collected_data) return responseOk(register)
             const cnpj = event.body.CurrentInput
             const cnpjIsValid = !!Number(cnpj) && cnpj.toString().length === 14
+            console.log('cnpjIsValid',cnpjIsValid)
             if (cnpjIsValid) {
                 const { data: { status, result } } = await axios(cnpjConfig(cnpj))
                 console.log('status',status)
                 console.log('result',result)
-                return responseOk(endRegister)    
+                return responseOk(endRegister(cnpj))
             }
-            return responseOk(endRegister)
+            return responseOk(endRegister(cnpj))
         }
         throw createError(404, 'Invalid Twilio Request. Memory is empty')
     } catch (error) { throw error }
