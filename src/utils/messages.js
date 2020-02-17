@@ -381,10 +381,6 @@ exports.acceptSelection = selection => ({
                                 }
                             ],
                             "repeat_question": true
-                        },
-                        "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
-                            "num_attempts": 2
                         }
                     }
                 }
