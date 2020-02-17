@@ -58,7 +58,7 @@ exports.pickProducts = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
@@ -82,7 +82,7 @@ exports.pickProducts = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
@@ -106,7 +106,7 @@ exports.pickProducts = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
@@ -125,7 +125,7 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
             "name": "prices",
             "questions": [
                 {
-		            "question": `Certo! Seu primeiro produto foi: *${productOne.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
+		            "question": `Certo! Seu primeiro produto foi: *${productOne.answer}*. Por qual preço você vende esse produto?\nObs.: Não use vírgula nem ponto`,
                     "name": "priceOne",
                     "type": "Twilio.NUMBER",
                     "validate": {
@@ -140,12 +140,12 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
 		        },{
-		            "question": `Ok! Seu segundo produto foi: *${productTwo.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
+		            "question": `Ok! Seu segundo produto foi: *${productTwo.answer}*. Por qual preço você vende esse produto?\nObs.: Não use vírgula nem ponto`,
                     "name": "priceTwo",
                     "type": "Twilio.NUMBER",
                     "validate": {
@@ -160,12 +160,12 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
 		        },{
-		            "question": `Beleza! Pra terminar, seu terceiro produto foi: *${productThree.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
+		            "question": `Beleza! Pra terminar, seu terceiro produto foi: *${productThree.answer}*. Por qual preço você vende esse produto?\nObs.: Não use vírgula nem ponto`,
                     "name": "priceThree",
                     "type": "Twilio.NUMBER",
                     "validate": {
@@ -180,7 +180,7 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
@@ -243,7 +243,7 @@ exports.pickStyle = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
@@ -372,7 +372,7 @@ exports.acceptSelection = selection => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
                             "num_attempts": 2
                         }
                     }
