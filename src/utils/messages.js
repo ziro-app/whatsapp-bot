@@ -354,7 +354,7 @@ exports.acceptSelection = selection => ({
             "name": "selection",
             "questions": [
                 {
-		            "question": `Pronto! Separamos para você as seguintes marcas:\n${displaySuppliers(selection)}\nO que achou? Gostou da seleção?`,
+		            "question": `Pronto! Separamos para você as seguintes marcas:\n${displaySuppliers(selection)}\nO que achou? Gostou da seleção? S/N?`,
                     "name": "selection",
                     "type": "SimNao",
                     "validate": {
@@ -364,7 +364,7 @@ exports.acceptSelection = selection => ({
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Pode mandar simplesmente *Sim* ou *Não*! Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                    "say": "Não entendi. Pode mandar simplesmente *S* ou *N*! Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
                                 },
                                 {
                                     "say": "Reiniciando..."
@@ -429,6 +429,6 @@ exports.register = {
 
 exports.end = {
     "actions": [{
-        "say": "Obrigado pelo seu tempo e por escolher a Ziro! Entraremos em contato em breve!"
+        "say": "Obrigado pelo seu tempo e por escolher a Ziro!"
     }]
 }
