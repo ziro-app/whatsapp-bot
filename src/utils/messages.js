@@ -1,3 +1,27 @@
+const validProducts = [
+    'bijuteria',
+    'cropped',
+    'blazer',
+    'jaqueta',
+    'blusa',
+    'kimono',
+    'body',
+    'macacao',
+    'bolsa',
+    'macaquinho',
+    'calca',
+    'saia',
+    'camisa',
+    'short',
+    'cardigan',
+    'tshirt',
+    'casaco',
+    'vestido curto',
+    'cinto',
+    'vestido longo',
+    'conjunto'
+]
+
 const pickFirstProductQuestion = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!\n
 Te recomendamos as melhores marcas de acordo com o que você está procurando!\n
 Conta pra gente: Qual produto deseja comprar no Bom Retiro? As opções são:\n
@@ -21,7 +45,27 @@ exports.pickProducts = {
                 {
 		            "question": pickFirstProductQuestion,
                     "name": "productOne",
-                    "type": "Produtos"
+                    "type": "Produtos",
+                    "validate": {
+                        "allowed_values": {
+                            "list": validProducts
+                        },
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
 		        },
                 {
 		            "question": "Agora, escolhe pra gente um segundo produto da lista",
