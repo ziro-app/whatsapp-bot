@@ -55,6 +55,7 @@ exports.pickProducts = {
                             ]
                         },
                         "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 1
                         }
                     }
