@@ -45,7 +45,6 @@ const autopilot = async event => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-            console.log(memory.twilio.collected_data)
             if (!memory.twilio.collected_data.register) return responseOk(register)
             const cnpj = event.body.CurrentInput
             const cnpjIsValid = !!Number(cnpj) && cnpj.toString().length === 14
@@ -56,15 +55,9 @@ const autopilot = async event => {
                     const { products, prices, style } = memory.twilio.collected_data
                     const { productOne, productTwo, productThree } = products.answers
                     const { priceOne, priceTwo, priceThree } = prices.answers
-                    const styleAnswer = style.answers
-                    console.log(productOne)
-                    console.log(productTwo)
-                    console.log(productThree)
-                    console.log(priceOne)
-                    console.log(priceTwo)
-                    console.log(priceThree)
-                    console.log(styleAnswer)
+                    const styleAnswer = style.answers.style.answer
                     const { data } = await axios(sheetConfig([
+                        cnpj, memory.twilio['messaging.whatsapp'].From,
                         productOne.answer, productTwo.answer, productThree.answer,
                         priceOne.answer, priceTwo.answer, priceThree.answer,
                     ]))
