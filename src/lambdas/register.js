@@ -36,7 +36,8 @@ const cnpjConfig = cnpj => ({
 const autopilot = async event => {
     try {
         if (event.body.Memory) {
-            if (!event.body.Memory.twilio.collected_data.register) return responseOk(register)
+            const memory = JSON.parse(event.body.Memory)
+            if (!memory.twilio.collected_data.register) return responseOk(register)
             const cnpj = event.body.CurrentInput
             const cnpjIsValid = !!Number(cnpj) && cnpj.toString().length === 14
             if (cnpjIsValid) {
