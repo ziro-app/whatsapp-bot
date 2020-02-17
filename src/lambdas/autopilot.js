@@ -18,6 +18,7 @@ const autopilot = async event => {
 		if (event.body.Memory) {
 			const memory = JSON.parse(event.body.Memory)
 			const { collected_data } = memory.twilio
+			if (!collected_data) return responseOk(pickProducts)
 			if (collected_data.products.status !== 'complete') return responseOk(pickProducts)
 			if (collected_data.products.status === 'complete' && !collected_data.prices)
 				return responseOk(pickPrices(collected_data.products.answers))
