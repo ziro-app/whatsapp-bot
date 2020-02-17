@@ -39,7 +39,7 @@ const autopilot = async event => {
         if (event.body.Memory) {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
-            if (!memory.twilio.collected_data) return responseOk(register)
+            if (!memory.twilio.collected_data.register) return responseOk(register)
             const cnpj = event.body.CurrentInput
             const cnpjIsValid = !!Number(cnpj) && cnpj.toString().length === 14
             console.log('cnpjIsValid',cnpjIsValid)

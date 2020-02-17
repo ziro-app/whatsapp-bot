@@ -22,7 +22,7 @@ const validProducts = [
     'conjunto'
 ]
 
-const pickFirstProductQuestion = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro!\n
+const pickFirstProductQuestion = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro! 🛍️🚀\n
 Te recomendamos as melhores marcas de acordo com o que você está procurando!\n
 Conta pra gente: Qual produto deseja comprar no Bom Retiro? As opções são:\n
 bijuteria, blazer, blusa,
@@ -262,9 +262,9 @@ const displaySuppliers = selection => {
     const titleOne = responseOne.toUpperCase()
     const titleTwo = responseTwo.toUpperCase()
     const titleThree = responseThree.toUpperCase()
-    const selectionOneEmpty = selectionOne.length === 0 ? 'Nenhuma marca encontrada nesse preço' : ''
-    const selectionTwoEmpty = selectionTwo.length === 0 ? 'Nenhuma marca encontrada nesse preço' : ''
-    const selectionThreeEmpty = selectionThree.length === 0 ? 'Nenhuma marca encontrada nesse preço' : ''
+    const selectionOneEmpty = selectionOne.length === 0 ? 'Nenhuma marca encontrada. Estamos aprimorando nossa base 🙏' : ''
+    const selectionTwoEmpty = selectionTwo.length === 0 ? 'Nenhuma marca encontrada. Estamos aprimorando nossa base 🙏' : ''
+    const selectionThreeEmpty = selectionThree.length === 0 ? 'Nenhuma marca encontrada. Estamos aprimorando nossa base 🙏' : ''
     const [selectionOneBrandOne, selectionOneBrandTwo, selectionOneBrandThree] = selectionOne
     const selectionBrandOneNameOne = selectionOneBrandOne ? selectionOneBrandOne.nome : ''
     const selectionBrandOneNameTwo = selectionOneBrandTwo ? selectionOneBrandTwo.nome : ''
