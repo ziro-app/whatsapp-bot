@@ -54,12 +54,8 @@ exports.pickProducts = {
                             "messages": [
                                 {
                                     "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
-                                },
-                                {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
                                 }
-                            ],
-                            "repeat_question": true
+                            ]
                         }
                     }
 		        },
