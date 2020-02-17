@@ -31,42 +31,42 @@ test('Test invalid product', t => {
 	t.is(result, expected)
 })
 test('Test return values 1', t => {
-	const result = priceNumberToText(testTable, 'blazer', 50)
+	const result = priceNumberToText(testTable, 'blazer', 100)
 	const expected = 'Mínimo'
 	t.is(result, expected)
 })
 test('Test return values 2', t => {
-	const result = priceNumberToText(testTable, 'blazer', 51)
+	const result = priceNumberToText(testTable, 'blazer', 102)
 	const expected = 'Baixo'
 	t.is(result, expected)
 })
 test('Test return values 3', t => {
-	const result = priceNumberToText(testTable, 'blazer', 89)
+	const result = priceNumberToText(testTable, 'blazer', 178)
 	const expected = 'Baixo'
 	t.is(result, expected)
 })
 test('Test return values 4', t => {
-	const result = priceNumberToText(testTable, 'blazer', 90)
+	const result = priceNumberToText(testTable, 'blazer', 180)
 	const expected = 'Médio'
 	t.is(result, expected)
 })
 test('Test return values 5', t => {
-	const result = priceNumberToText(testTable, 'blazer', 159)
+	const result = priceNumberToText(testTable, 'blazer', 318)
 	const expected = 'Médio'
 	t.is(result, expected)
 })
 test('Test return values 6', t => {
-	const result = priceNumberToText(testTable, 'blazer', 160)
+	const result = priceNumberToText(testTable, 'blazer', 320)
 	const expected = 'Alto'
 	t.is(result, expected)
 })
 test('Test return values 7', t => {
-	const result = priceNumberToText(testTable, 'kimono', 160)
+	const result = priceNumberToText(testTable, 'kimono', 320)
 	const expected = 'Alto'
 	t.is(result, expected)
 })
 test('Test return values 8', t => {
-	const result = priceNumberToText(testTable, 'saia', 160)
+	const result = priceNumberToText(testTable, 'saia', 320)
 	const expected = 'Alto'
 	t.is(result, expected)
 })
