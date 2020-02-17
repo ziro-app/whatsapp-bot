@@ -48,7 +48,7 @@ const autopilot = async event => {
                 const message = validateCnpj(status, result)
                 return responseOk(endRegister(message))
             }
-            return responseOk(endRegister('Seu Cnpj está mal formatado. Ele precisa ter 14 digitos, sem pontuação'))
+            return responseOk(endRegister('Seu Cnpj está mal formatado. Ele precisa ter 14 digitos, sem pontuação. Você pode tentar de novo, mas se preferir, pode mandar uma mensagem para esse número de Whatsapp +55 (11) 3334-0920 e nossa equipe vai te ajudar com seu cadastro!'))
         }
         throw createError(404, 'Invalid Twilio Request. Memory is empty')
     } catch (error) { throw error }
