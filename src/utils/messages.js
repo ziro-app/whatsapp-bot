@@ -31,7 +31,8 @@ camisa, cardigan, casaco,
 cinto, conjunto, cropped,
 jaqueta, kimono, macacao,
 macaquinho, saia, short,
-tshirt, vestido curto, vestido longo`
+tshirt, vestido curto, vestido longo
+`
 
 exports.pickProducts = {
     "actions": [{
@@ -52,6 +53,9 @@ exports.pickProducts = {
                                     "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "num_attempts": 1
                         }
                     }
 		        },
