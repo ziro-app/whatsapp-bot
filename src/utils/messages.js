@@ -74,9 +74,16 @@ exports.pickProducts = {
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok? Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
                         }
                     }
 		        },
@@ -91,9 +98,16 @@ exports.pickProducts = {
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok? Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
                         }
                     }
 		        }
@@ -118,9 +132,16 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
+                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok? Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
                         }
                     }
 		        },{
@@ -131,9 +152,16 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
+                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok? Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
                         }
                     }
 		        },{
@@ -144,9 +172,16 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
+                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok? Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
                         }
                     }
 		        }
@@ -200,9 +235,16 @@ exports.pickStyle = {
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok? Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
                         }
                     }
 		        }
@@ -322,12 +364,16 @@ exports.acceptSelection = selection => ({
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Pode mandar simplesmente Sim ou Não!"
+                                    "say": "Não entendi. Pode mandar simplesmente Sim ou Não! Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
                                 },
                                 {
-                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                    "say": "Reiniciando..."
                                 }
                             ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
                         }
                     }
                 }
