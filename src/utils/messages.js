@@ -70,12 +70,52 @@ exports.pickProducts = {
                 {
 		            "question": "Agora, escolhe pra gente um segundo produto da lista",
                     "name": "productTwo",
-                    "type": "Produtos"
+                    "type": "Produtos",
+                    "validate": {
+                        "allowed_values": {
+                            "list": validProducts
+                        },
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
 		        },
                 {
 		            "question": "Por fim, escolhe o terceiro e último produto da lista",
                     "name": "productThree",
-                    "type": "Produtos"
+                    "type": "Produtos",
+                    "validate": {
+                        "allowed_values": {
+                            "list": validProducts
+                        },
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
 		        }
             ],
             "on_complete": {
@@ -93,15 +133,66 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                 {
 		            "question": `Certo! Seu primeiro produto foi: *${productOne.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
                     "name": "priceOne",
-                    "type": "Twilio.NUMBER"
+                    "type": "Twilio.NUMBER",
+                    "validate": {
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
 		        },{
 		            "question": `Ok! Seu segundo produto foi: *${productTwo.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
                     "name": "priceTwo",
-                    "type": "Twilio.NUMBER"
+                    "type": "Twilio.NUMBER",
+                    "validate": {
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
 		        },{
 		            "question": `Beleza! Pra terminar, seu terceiro produto foi: *${productThree.answer}*. Por qual preço você vende esse produto?\nObs.: Não use decimal`,
                     "name": "priceThree",
-                    "type": "Twilio.NUMBER"
+                    "type": "Twilio.NUMBER",
+                    "validate": {
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Digita por favor somente números, sem vírgula nem ponto, ok?"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
 		        }
             ],
             "on_complete": {
@@ -110,6 +201,18 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
         }
     }]
 })
+
+const validStyles = [
+    'Casual',
+    'Evangelico',
+    'Festa',
+    'Fitness',
+    'Jeans',
+    'Romantico',
+    'Sexy',
+    'Social',
+    'Sofisticado'
+]
 
 const pickStyleQuestion = `Ok! Estamos quase terminando!\n
 Agora precisamos saber acerca do estilo da sua loja\n
@@ -133,7 +236,27 @@ exports.pickStyle = {
                 {
 		            "question": pickStyleQuestion,
                     "name": "style",
-                    "type": "Estilos"
+                    "type": "Estilos",
+                    "validate": {
+                        "allowed_values": {
+                            "list": validStyles
+                        },
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Digita por favor exatamente como aparece na lista acima, assim consigo te ajudar, ok?"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
 		        }
             ],
             "on_complete": {
@@ -210,6 +333,31 @@ ${blockThree}
 `
 }
 
+const validAnswers = [
+    'Sim',
+    'Si',
+    'S',
+    'sim',
+    'si',
+    's',
+    'Não',
+    'No',
+    'N',
+    'não',
+    'no',
+    'n',
+    'Nao',
+    'Na',
+    'nao',
+    'na',
+    'gostei',
+    'Gostei',
+    'Não Gostei',
+    'Não gostei',
+    'Nao gostei',
+    'Nao Gostei'
+]
+
 exports.acceptSelection = selection => ({
     "actions": [{
         "collect": {
@@ -218,7 +366,28 @@ exports.acceptSelection = selection => ({
                 {
 		            "question": `Pronto! Separamos para você as seguintes marcas:\n${displaySuppliers(selection)}\nO que achou? Gostou da seleção?`,
                     "name": "selection",
-                    "type": "SimNao"
+                    "type": "SimNao",
+                    "validate": {
+                        "allowed_values": {
+                            "list": validAnswers
+                        },
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Pode mandar simplesmente Sim ou Não!"
+                                },
+                                {
+                                    "say": "Ainda não entendi. Pode tentar de novo, mas se quiser reiniciar lá do começo, é só mandar uma mensagem qualquer"
+                                }
+                            ],
+                            "repeat_question": true
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
+                }
 		        }
             ],
             "on_complete": {
