@@ -58,7 +58,7 @@ exports.pickProducts = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -82,7 +82,7 @@ exports.pickProducts = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -106,7 +106,7 @@ exports.pickProducts = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -140,7 +140,7 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -160,7 +160,7 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -180,7 +180,7 @@ exports.pickPrices = ({ productOne, productTwo, productThree }) => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -243,7 +243,7 @@ exports.pickStyle = {
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -364,7 +364,7 @@ exports.acceptSelection = selection => ({
                         "on_failure": {
                             "messages": [
                                 {
-                                    "say": "Não entendi. Pode mandar simplesmente Sim ou Não! Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                    "say": "Não entendi. Pode mandar simplesmente *Sim* ou *Não*! Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
                                 },
                                 {
                                     "say": "Reiniciando..."
@@ -372,7 +372,7 @@ exports.acceptSelection = selection => ({
                             ]
                         },
                         "max_attempts": {
-                            "redirect": "https://whats.ziro.app/.netlify/functions/restart",
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
                             "num_attempts": 2
                         }
                     }
@@ -384,6 +384,48 @@ exports.acceptSelection = selection => ({
         }
     }]	
 })
+
+const callToRegister = `
+Ok, lembrando que você pode refazer a busca sempre que quiser!\n
+Outra coisa, estamos oferecendo frete grátis para quem comprar conosco esse mês, afinal é Carnaval! 🥳\n
+Se quiser que a gente entre em contato para te ajudar nas suas compras, *manda aqui seu CNPJ*\n
+Te ajudamos não apenas na seleção de marcas, mas também na abertura de cadastro, na logística, no pagamento, enfim, no que precisar!\n
+E então? *manda seu cnpj* para a gente! Pode mandar os números apenas, sem pontuação
+`
+
+exports.register = {
+    "actions": [{
+        "collect": {
+            "name": "register",
+            "questions": [
+                {
+                    "question": callToRegister,
+                    "name": "register",
+                    "type": "Twilio.NUMBER",
+                    "validate": {
+                        "on_failure": {
+                            "messages": [
+                                {
+                                    "say": "Não entendi. Manda só os *números*. Mas se quiser reiniciar tudo, é só mandar uma mensagem qualquer"
+                                },
+                                {
+                                    "say": "Reiniciando..."
+                                }
+                            ]
+                        },
+                        "max_attempts": {
+                            "redirect": "https://whats.ziro.app/.netlify/functions/autopilot",
+                            "num_attempts": 2
+                        }
+                    }
+                }
+            ],
+            "on_complete": {
+                "redirect": "https://whats.ziro.app/.netlify/functions/autopilot"
+            }
+        }
+    }]  
+}
 
 exports.end = {
     "actions": [{

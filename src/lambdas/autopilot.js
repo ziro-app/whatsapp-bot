@@ -10,6 +10,7 @@ const {
 	pickPrices,
 	pickStyle,
 	acceptSelection,
+	register,
 	end
 } = require('../utils/messages')
 
@@ -22,9 +23,8 @@ const autopilot = async event => {
 			if (collected_data.products.status !== 'complete') return responseOk(pickProducts)
 			if (collected_data.products.status === 'complete' && !collected_data.prices)
 				return responseOk(pickPrices(collected_data.products.answers))
-			if (collected_data.prices.status === 'complete' && !collected_data.style) {
+			if (collected_data.prices.status === 'complete' && !collected_data.style)
 				return responseOk(pickStyle)
-			}
 			if (collected_data.style.status === 'complete' && !collected_data.selection) {
 				const [products, prices, style] = prepareData(
 					collected_data.products.answers,
@@ -37,6 +37,7 @@ const autopilot = async event => {
 				console.log(selectionThree)
 				return responseOk(acceptSelection([products, selectionOne, selectionTwo, selectionThree]))
 			}
+			if (collected_data.selection.status === 'complete') return responseOk(register)
 			return responseOk(end)
 		}
 		throw createError(404, 'Invalid Twilio Request. Memory is empty')
