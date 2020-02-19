@@ -46,26 +46,23 @@ const autopilot = async event => {
             const memory = JSON.parse(event.body.Memory)
             console.log(memory)
             if (!memory.twilio.collected_data.register) return responseOk(register)
-            const cnpj = event.body.CurrentInput
-            const cnpjIsValid = !!Number(cnpj) && cnpj.toString().length === 14
-            if (cnpjIsValid) {
-                const { data: { status, result } } = await axios(cnpjConfig(cnpj))
-                const message = validateCnpj(status, result)
-                if (message.slice(0,2) === 'OK') {
-                    const { products, prices, style } = memory.twilio.collected_data
-                    const { productOne, productTwo, productThree } = products.answers
-                    const { priceOne, priceTwo, priceThree } = prices.answers
-                    const styleAnswer = style.answers.style.answer
-                    const { data } = await axios(sheetConfig([
-                        cnpj, memory.twilio['messaging.whatsapp'].From,
-                        productOne.answer, productTwo.answer, productThree.answer,
-                        priceOne.answer, priceTwo.answer, priceThree.answer,
-                    ]))
-                    console.log(data)
-                }
-                return responseOk(endRegister(message))
+            const cnpjRaw = event.body.CurrentInput
+            const cnpj = cnpjRaw.toString().replace(/\.|\/|-/g,'') // removes all punctuation from cnpj
+            const { data: { status, result } } = await axios(cnpjConfig(cnpj))
+            const message = validateCnpj(status, result)
+            if (message.slice(0,2) === 'OK') {
+                const { products, prices, style } = memory.twilio.collected_data
+                const { productOne, productTwo, productThree } = products.answers
+                const { priceOne, priceTwo, priceThree } = prices.answers
+                const styleAnswer = style.answers.style.answer
+                const { data } = await axios(sheetConfig([
+                    cnpj, memory.twilio['messaging.whatsapp'].From,
+                    productOne.answer, productTwo.answer, productThree.answer,
+                    priceOne.answer, priceTwo.answer, priceThree.answer,
+                ]))
+                console.log(data)
             }
-            return responseOk(endRegister('Seu Cnpj está mal formatado. Ele precisa ter 14 digitos, sem pontuação. Você pode tentar de novo, mas se preferir, pode mandar uma mensagem para esse número de Whatsapp +55 (11) 3334-0920 e nossa equipe vai te ajudar com seu cadastro!'))
+            return responseOk(endRegister(message))
         }
         throw createError(404, 'Invalid Twilio Request. Memory is empty')
     } catch (error) { throw error }

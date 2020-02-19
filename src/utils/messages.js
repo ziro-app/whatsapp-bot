@@ -24,14 +24,16 @@ const validProducts = [
 
 const pickFirstProductQuestion = `Olá! A Ziro está aqui para te ajudar a comprar melhor no Bom Retiro! 🛍️🚀\n
 Te recomendamos as melhores marcas de acordo com o que você está procurando!\n
-Conta pra gente: Qual produto deseja comprar no Bom Retiro? As opções são:\n
+Então vamos lá! Escolhe *UM* produto que deseja comprar no Bom Retiro\n
+As opções são:\n
 bijuteria, blazer, blusa,
 body, bolsa, calca,
 camisa, cardigan, casaco,
 cinto, conjunto, cropped,
 jaqueta, kimono, macacao,
 macaquinho, saia, short,
-tshirt, vestido curto, vestido longo
+tshirt, vestido curto, vestido longo\n
+Manda *apenas UM* e do jeito que está escrito acima, ok?
 `
 
 exports.pickProducts = {
